@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div> 
-      <BrowserRouter basename="/awaze-e-janata">
+      <BrowserRouter >
       <Routes>
        <Route path="/" element={<Layout />}>
        <Route path="/" element={<Home />} />
