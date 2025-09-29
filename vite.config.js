@@ -8,5 +8,5 @@ export default defineConfig({
     tailwindcss(),
 
   ],
-  base: '/awaze-e-janata/',
+  base: '/',
 })
