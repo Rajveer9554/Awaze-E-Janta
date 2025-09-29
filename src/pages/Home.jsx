@@ -3,8 +3,8 @@ import { LuCircleCheckBig } from "react-icons/lu";
 import { CgBot } from "react-icons/cg";
 import { GiProgression } from "react-icons/gi";
 import { MdSecurity } from "react-icons/md";
-import  {CardOne} from "../Components/Card";
-import Header from "../Components/Header";
+import  {CardOne} from "../Components/Card.jsx";
+
 
 import { Link } from "react-router-dom";
 

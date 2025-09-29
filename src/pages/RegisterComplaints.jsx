@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {CardTwo} from '../Components/Card';
+import {CardTwo} from '../Components/Card.jsx';
 
 function RegisterComplaints() {
 
