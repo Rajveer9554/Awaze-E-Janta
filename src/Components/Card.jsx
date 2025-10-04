@@ -8,7 +8,7 @@ export function CardOne({ title, content, icon,count}) {
       {/* <div className="absolute inset-0 bg-black/40 backdrop-blur-sm rounded-2xl"></div> */}
 
       <div className="relative z-10 flex flex-col items-center ">
-        <div className="mb-4 text-yellow-300">{icon}</div>
+        <div className="mb-4 text-blue-800">{icon}</div>
         <h2 className="text-2xl  font-bold mb-5">{title}</h2>
         <p className="text-xl font-semibold text-center mb-4">{content}</p>
         <p className="text-4xl font-semibold text-center mb-4">{count}</p>
@@ -46,4 +46,4 @@ export function CardTwo({ title, content, icon,count,buttonText }) {
   );
 }
 
-// export default {CardOne,CardTwo};
+export default {CardOne,CardTwo};

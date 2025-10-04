@@ -46,6 +46,7 @@ function Header() {
                     isActive? "text-black font-semibold  bg-white px-2 py-2 rounded-full  ":"text-white"}>
                       Get Started</NavLink>
                 </li>
+                
             </ul>
             
         

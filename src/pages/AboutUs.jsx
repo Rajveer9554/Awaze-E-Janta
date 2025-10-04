@@ -1,7 +1,11 @@
 import React from "react";
+import { useEffect } from "react";
 import { Users, Target, Award } from "lucide-react";
 
 export default function AboutUs() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="bg-gray-50 text-gray-800 mt-10">
       {/* Hero Section */}
