@@ -174,7 +174,7 @@ useEffect(() => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-4">
-      <div className="mt-15 bg-white/80 backdrop-blur-md shadow-2xl rounded-2xl p-8 w-full max-w-md border border-gray-100 animate-fadeIn">
+      <div className="mt-15 bg-white/80 backdrop-blur-md gradient-shadow  shadow-xl rounded-xl p-8 w-full max-w-md border border-gray-100 animate-fadeIn">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
           Create Your Account
         </h2>

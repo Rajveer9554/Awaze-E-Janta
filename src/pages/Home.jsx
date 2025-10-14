@@ -202,7 +202,8 @@ const testimonials = useMemo(
       {/* Services Section */}
 
       <div
-        className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10  justify-items-center px-4 mx-30 "
+        className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10  justify-items-center px-4 mx-30 animate-pulse "
+        
         
         style={{
           backgroundImage:
@@ -229,7 +230,7 @@ const testimonials = useMemo(
 
       {/* kitna complaints regesitered hua, active,user,city coverd */}
       <div
-        className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10  justify-items-center px-2 mx-50 "
+        className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10  justify-items-center animate-pulse px-2 mx-50 "
       >
         {data.map((card) => (
           <CardOne
