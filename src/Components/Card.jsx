@@ -1,4 +1,14 @@
-export function CardOne({ title, content, icon,count}) {
+
+
+
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+
+
+// card for dashboard
+export function CardOne({ title, content, icon,count }) {
   return (
     <div
       className=" shadow-lg rounded-2xl p-6  w-72 m-9 flex flex-col items-center text-black bg-white  shadow-blue-500 "
@@ -22,10 +32,37 @@ export function CardOne({ title, content, icon,count}) {
   );
 }
 //// registercomplaint card
-export function CardTwo({ title, content, icon,count,buttonText }) {
+export function CardTwo({ title, content, icon,count,buttonText, path }) {
   return (
     <div
-      className="  rounded-2xl p-6  w-72 m-9 flex flex-col items-center text-black bg-white shadow-lg shadow-blue-500 "
+      className="  rounded-2xl p-6  w-85 h-65 m-9 flex flex-col items-center text-black bg-white shadow-lg shadow-blue-500 "
+      // style={{ backgroundImage: `url(${bgImage})` }}
+    >
+      {/* Overlay for better readability */}
+      {/* <div className="absolute inset-0 bg-black/40 backdrop-blur-sm rounded-2xl"></div> */}
+
+      <div className="relative z-10 flex flex-col items-center  ">
+        <div className="mb-4 text-yellow-300">{icon}</div>
+        <h2 className="text-xl  font-bold mb-5 text-center">{title}</h2>
+        <p className="text-xl font-light text-center mb-4">{content}</p>
+        <p className="text-4xl font-semibold text-center mb-4">{count}</p>
+
+<Link to={path}>
+        <button className="bg-blue-700 text-white px-4 py-2 rounded-full hover:shadow cursor-pointer hover:bg-blue-600 transition">
+          {buttonText}
+        </button>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+//// tracking card 
+
+export function CardThree({ title, content, icon,count,buttonText }) {
+  return (
+    <div
+      className="  rounded-2xl p-6  m-9 flex flex-col items-center text-black bg-white shadow-lg shadow-blue-500 "
       // style={{ backgroundImage: `url(${bgImage})` }}
     >
       {/* Overlay for better readability */}
@@ -41,9 +78,11 @@ export function CardTwo({ title, content, icon,count,buttonText }) {
         <button className="bg-blue-700 text-white px-4 py-2 rounded-full hover:shadow cursor-pointer hover:bg-blue-600 transition">
           {buttonText}
         </button>
+        
       </div>
     </div>
   );
 }
 
-export default {CardOne,CardTwo};
+
+export default {CardOne,CardTwo,CardThree};

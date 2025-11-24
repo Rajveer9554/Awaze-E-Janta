@@ -146,6 +146,7 @@ const team = [
     photo: rajveerPhoto,
     phone: "+91 9554120959",
     email: "rajveer786067@gmail.com",
+    jobplace:"Developer of Awaze-E-Janata"
   },
   {
     name: "Aman Tiwari",
@@ -219,6 +220,9 @@ export default function ContactUs() {
                 <EnvelopeIcon className="h-5 w-5" />
                 {member.email}
               </a>
+              <div>
+              <p className="text-black font-semibold mt-2">{member.jobplace}</p>
+              </div>
             </div>
           </motion.div>
         ))}

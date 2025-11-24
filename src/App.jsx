@@ -9,6 +9,8 @@ import AboutUs from './pages/AboutUs.jsx';
 import ContactUs from './pages/ContactUs.jsx';
 import RegisterComplaints from './pages/RegisterComplaints.jsx';
 import GetStarted from './pages/GetStarted.jsx';
+import ComplaintManually from './pages/ComplaintManually.jsx';
+import ComplaintPreview from './pages/ComplaintmanuallPreview.jsx';
 
 
 
@@ -25,6 +27,8 @@ function App() {
        <Route path="contact-us" element={<ContactUs/>} />
        <Route path="register-complaints" element={<RegisterComplaints />} />
        <Route path="get-started" element={<GetStarted />} />
+       <Route path="complaint-mannually" element={<ComplaintManually />} />
+        <Route path="complaint-preview" element={<ComplaintPreview />} />
        
         
        </Route>
