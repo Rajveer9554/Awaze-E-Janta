@@ -16,7 +16,7 @@ function Header() {
         {/* Navigation Links */}
 
         <div className='flex gap-3 sm:gap-5 items-center'>
-            <ul className='flex flex-wrap gap-3 sm:gap-5 items-center text-sm sm:text-base'>
+            <ul className='flex flex-wrap gap-3 sm:gap-5 items-center text-sm sm:text-base overflow-x-auto whitespace-nowrap'>
                 <li className=' cursor-pointer hover:text-blue-400 text-white'>
                     <NavLink to="/"
                     className={({isActive}) =>
