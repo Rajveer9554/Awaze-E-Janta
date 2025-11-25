@@ -61,11 +61,11 @@ function RegisterComplaints() {
         </div> */}
 
        
-        <div className="flex flex-col w-full h-60 bg-gradient-to-r from-green-300 via-blue-300 to-purple-400 rounded-b-3xl shadow-lg shadow-blue-500  items-center justify-center mb-10">
-          <h1 className=' text-4xl text-black font-extrabold'>
+        <div className="flex flex-col w-full min-h-[15rem] bg-gradient-to-r from-green-300 via-blue-300 to-purple-400 rounded-b-3xl shadow-lg shadow-blue-500  items-center justify-center mb-10 px-4 sm:px-8 md:px-16">
+          <h1 className=' text-2xl sm:text-3xl md:text-4xl text-black font-extrabold'>
             Welcome to Awaze-E-Janata
             </h1>
-            <p className='py-10 text-2xl text-black font-light'>
+            <p className='py-6 sm:py-8 md:py-10 text-lg sm:text-xl md:text-2xl  text-black font-light'>
               Submit your complaints easily and quickly through our user-friendly platform.
             </p>
         </div>
@@ -75,13 +75,13 @@ function RegisterComplaints() {
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="text-5xl font-bold text-center  mt-25 text-black"
+        className="text-2xl sm:text-3xl md:text-5xl font-bold text-center mt-10 text-black"
       > Here are the ways to filed a Complaints
        
       </motion.h1>
 
     <motion.div
-        className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10   justify-items-center px-4 mx-50 "
+        className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mt-10 justify-items-center px-4 sm:px-6 md:px-10"
         initial={{ x: -200, opacity: 0 }}
         animate={{ x: 1, opacity: 3 }}
         transition={{ duration: 4.8 }}
@@ -102,12 +102,12 @@ function RegisterComplaints() {
         ))}
       </motion.div>
 
-      <h1  className="text-7xl font-medium text-center mt-25  text-black"
+      <h1  className="text-2xl sm:text-4xl md:text-5xl font-medium text-center mt-16 text-black"
       > Here is the Tracking Section
 
       </h1>
 
-      <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10   justify-items-center px-180  ">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mt-10 justify-items-center px-4 sm:px-6 md:px-10  ">
         {tracking.map((card) => (
           <CardTwo
             key={card.id} 
