@@ -15,38 +15,38 @@ function Header() {
         </div>
         {/* Navigation Links */}
 
-        <div className='flex gap-3 sm:gap-5 items-center'>
-            <ul className='flex flex-wrap gap-3 sm:gap-5 items-center text-sm sm:text-base overflow-x-auto whitespace-nowrap'>
+        <div className='flex min-w-0 items-center'>
+            <ul className='flex flex-nowrap gap-2 sm:gap-4 md:gap-6 items-center text-xs sm:text-base md:text-base  '>
                 <li className=' cursor-pointer hover:text-blue-400 text-white'>
                     <NavLink to="/"
                     className={({isActive}) =>
-                    isActive? "text-black font-semibold px-2 py-2 sm:px-3 sm:py-2   bg-white rounded-full ":"text-white"}
+                    isActive? "text-black font-semibold px-1 py-1 sm:px-2 sm:py-2   bg-white rounded-full ":"text-white"}
                     >Home</NavLink>
                 </li>
                 <li className='cursor-pointer hover:text-blue-400 text-white'>
                     <NavLink to="/about-us"
                     className={({isActive}) =>
-                    isActive? "text-black font-semibold  bg-white px-2 py-2 sm:px-3 sm:py-2 rounded-full ":"text-white"}>
-                      About Us</NavLink>
+                    isActive? "text-black font-semibold  bg-white px-1 py-1 sm:px-2 sm:py-2 rounded-full ":"text-white"}>
+                      About</NavLink>
                 </li>
                 <li className='cursor-pointer hover:text-blue-400 text-white'>
                     <NavLink to="/contact-us"
                     className={({isActive}) =>
                     isActive? "text-black font-semibold  bg-white px-2 py-2 sm:px-3 sm:py-2 rounded-full  ":"text-white"}>
-                      Contact Us</NavLink>
+                      Contact</NavLink>
                 </li>
                 <li className='cursor-pointer hover:text-blue-400 text-white'>
                     <NavLink to="/register-complaints"
                     className={({isActive}) =>
                     isActive? "text-black font-semibold  bg-white px-2 py-2 sm:px-3 sm:py-2 rounded-full  ":"text-white"}>
-                      Register Complaints</NavLink>
+                      Complaint</NavLink>
                 </li>
 
                 <li className='cursor-pointer hover:text-blue-400 text-white'>
                     <NavLink to="/get-started"
                     className={({isActive}) =>
                     isActive? "text-black font-semibold  bg-white px-2 py-2 sm:px-3 sm:py-2 rounded-full  ":"text-white"}>
-                      Get Started</NavLink>
+                      SignUp</NavLink>
                 </li>
                 
             </ul>
@@ -56,7 +56,7 @@ function Header() {
     </nav>
       
       
-        
+      
       
       
   )
