@@ -1,133 +1,7 @@
 
 
 
-
-// import React from "react";
-// import { motion } from "framer-motion";
-// import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/20/solid";
-
-
-// // Local photos import
-// import rajveerPhoto from "../assets/rajveer.jpg";
-// import member2Photo from "../assets/aman.jpg";
-// import member3Photo from "../assets/raj.jpg";
-
-// // Team Members Data
-// const team = [
-//   {
-//     name: "Rajveer Pratap Singh",
-//     photo: rajveerPhoto,
-//     phone: "+91 9554120959",
-//     email: "rajveer786067@gmail.com",
-   
-//   },
-//   {
-//     name: "Aman Tiwari",
-//     photo: member2Photo,
-//     phone: "+91 8881946494",
-//     email: "tiwariamanhr@gmail.com",
-//   },
-//   {
-//     name: "Raj Yadav",
-//     photo: member3Photo,
-//     phone: "+91 99887 66554",
-//     email: "member3@example.com",
-//   },
-// ];
-
-// export default function ContactUs() {
-//   return (
-//     <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-blue-50 flex flex-col items-center pt-32 px-5 md:px-20">
-//       {/* Heading */}
-//       <motion.h1
-//         initial={{ y: -50, opacity: 0 }}
-//         animate={{ y: 0, opacity: 1 }}
-//         transition={{ duration: 0.8 }}
-//         className="text-5xl font-bold text-center mb-10 text-blue-900"
-//       >
-//         Contact Our Team
-//       </motion.h1>
-
-//       {/* Team Members */}
-//       <motion.div
-//         initial={{ opacity: 0 }}
-//         animate={{ opacity: 1 }}
-//         transition={{ duration: 1 }}
-//         className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mb-16  "
-//       >
-//         {team.map((member) => (
-//           <motion.div
-//             key={member.name}
-//             whileHover={{ scale: 1.05 }}
-//             className="bg-white rounded-3xl shadow-lg p-6 flex flex-col items-center text-center transition-transform shadow-blue-900 "
-//           >
-//             {/* Photo */}
-//             <img
-//               src={member.photo}
-//               alt={member.name}
-//               className="h-28 w-28 rounded-full mb-4 object-cover "
-//             />
-//             {/* Name */}
-//             <h2 className="font-semibold text-xl mb-2">{member.name}</h2>
-//             {/* Clickable Phone */}
-//             <a
-//               href={`tel:${member.phone}`}
-//               className="flex items-center gap-2 text-blue-600 font-medium mb-2 hover:underline"
-//             >
-//               <PhoneIcon className="h-5 w-5" />
-//               {member.phone}
-//             </a>
-//             {/* Clickable Email */}
-//             <a
-//              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${member.email}&su=Hello&body=Hi%20${member.name}`}
-//               target="_blank"
-//               rel="noopener noreferrer"
-//               className="flex items-center gap-2 text-green-600 font-medium hover:underline"
-//             >
-//               <EnvelopeIcon className="h-5 w-5" />
-//               {member.email}
-//             </a>
-//           </motion.div>
-//         ))}
-//       </motion.div>
-
-//        {/* Contact Form */}
-//       <motion.div
-//      initial={{ y: 50, opacity: 0 }}
-//         animate={{ y: 0, opacity: 1 }}
-//         transition={{ duration: 1, delay: 0.5 }}
-//         className="w-full max-w-3xl bg-white rounded-3xl shadow-xl p-10 mb-15 shadow-blue-900"
-//       >
-//         <h2 className="text-3xl font-bold text-center mb-6 text-blue-900">Send Us a Message</h2>
-//         <form className="flex flex-col gap-5">
-//           <input
-//             type="text"
-//             placeholder="Your Name"
-//             className="border border-gray-300 rounded-xl p-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-//           />
-//           <input
-//             type="email"
-//             placeholder="Your Email"
-//             className="border border-gray-300 rounded-xl p-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-//           />
-//           <textarea
-//             placeholder="Your Message"
-//             className="border border-gray-300 rounded-xl p-4 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none h-32"
-//           />
-//           <button
-//             type="submit"
-//             className="bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition"
-//           >
-//             Submit
-//           </button>
-//         </form>
-//       </motion.div>
-//     </div>
-//   );
-// }
-
-
-//////new one 
+////new one 
 
 
 import React from "react";
@@ -272,3 +146,6 @@ export default function ContactUs() {
     </div>
   );
 }
+
+
+
