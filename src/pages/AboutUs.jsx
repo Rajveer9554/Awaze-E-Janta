@@ -86,7 +86,7 @@ export default function AboutUs() {
   return (
     <div className="bg-gray-50 text-gray-800 mt-10">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-indigo-600 to-blue-500 text-white py-16 sm:py-20 text-center px-4">
+      <section className="relative bg-gradient-to-r from-indigo-600 to-blue-500 text-white py-16 sm:py-20 text-center rounded-2xl mt-20 px-4 mx-15">
         <h1 className="text-3xl sm:text-5xl md:text-6xl animate-pulse font-bold mb-4">
           About Us
         </h1>
