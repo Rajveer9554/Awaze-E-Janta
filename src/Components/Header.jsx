@@ -73,7 +73,7 @@ function Header() {
     <nav className="fixed top-0 left-0 w-full z-50 bg-blue-900 h-16 px-2 sm:px-6 md:px-12 lg:px-24 flex items-center justify-between">
       
       {/* Logo */}
-      <div className="text-white font-extrabold text-lg sm:text-xl md:text-2xl whitespace-nowrap">
+      <div className="text-white font-extrabold text-lg sm:text-xl md:text-2xl flex-shrink-0 whitespace-nowrap">
         Awaze-E-Janata
       </div>
 
