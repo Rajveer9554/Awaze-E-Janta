@@ -479,7 +479,7 @@ function Home() {
       {/* TESTIMONIALS */}
       <section className="mt-20 px-5">
         <motion.h2
-          className="text-center text-3xl md:text-4xl font-bold"
+          className="text-center text-3xl md:text-4xl font-bold "
           initial="hidden"
           whileInView="show"
           variants={fadeInUp}
@@ -503,7 +503,7 @@ function Home() {
       </section>
 
       {/* CTA */}
-      <section className="mt-20 px-5">
+      <section className="mt-20 px-5 mb-10">
         <div className="bg-gradient-to-r from-indigo-600 via-violet-600 to-fuchsia-600 p-[1px] rounded-3xl shadow-xl">
           <div className="bg-white/60 p-10 rounded-3xl text-center backdrop-blur-xl">
             <h3 className="text-3xl md:text-4xl font-bold">
