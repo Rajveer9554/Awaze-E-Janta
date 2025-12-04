@@ -143,6 +143,7 @@
 // export default Signup;
 
 import React, { useState, useEffect } from "react";
+import { registerUser } from "../services/UserService";
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -162,10 +163,18 @@ function Signup() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    
     // yahan backend API call kar sakte ho (fetch/axios se)
+     try {
+      const data = await registerUser(formData);
+      alert("✅ User registered successfully!");
+      console.log(data);
+    } catch (error) {
+      alert("❌ Error: " + error.msg);
+    }
+
   };
 
   return (
