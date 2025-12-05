@@ -85,6 +85,7 @@ function Header() {
           { label: 'Contact', path: '/contact-us' },
           { label: 'Complaint', path: '/register-complaints' },
           { label: 'SignUp', path: '/get-started' },
+          
         ].map(({ label, path }) => (
           <li key={label} className="cursor-pointer">
             <NavLink

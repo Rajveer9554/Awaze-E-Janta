@@ -144,8 +144,9 @@
 
 import React, { useState, useEffect } from "react";
 import { registerUser } from "../services/UserService";
+import { Link } from "react-router-dom";
 
-function Signup() {
+function GetStarted() {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -287,13 +288,14 @@ function Signup() {
 
         <p className="text-center text-gray-600 text-xs sm:text-sm mt-4">
           Already have an account?{" "}
-          <a href="#" className="text-indigo-600 hover:underline">
-            Login
-          </a>
+          <Link to="/login" className="text-indigo-600 hover:underline">
+  Login
+</Link>
+
         </p>
       </div>
     </div>
   );
 }
 
-export default Signup;
+export default GetStarted;
