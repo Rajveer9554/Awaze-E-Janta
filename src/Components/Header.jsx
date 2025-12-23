@@ -69,6 +69,7 @@ import React from 'react';
 import {NavLink, useNavigate } from 'react-router-dom';
 import { manualLogout } from '../utility/utilityService';
 import { ToastContainer, toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 function Header() {
    const navigate = useNavigate();
@@ -86,14 +87,21 @@ function Header() {
     <nav className="fixed top-0 left-0 w-full z-50 bg-blue-900 h-16 px-2 sm:px-6 md:px-12 lg:px-24 flex items-center justify-between">
       
       {/* Logo */}
-      <div className="text-white font-extrabold text-lg sm:text-xl md:text-2xl ">
+      {/* <div className="text-white font-extrabold text-lg sm:text-xl md:text-2xl ">
         Awaze-E-Janata
-      </div>
+       
+      </div> */}
+      <Link
+  to="/"
+  className="text-white font-extrabold text-lg sm:text-xl md:text-2xl hover:text-3xl transition"
+>
+  Awaze-E-Janata
+</Link>
 
       {/* Navigation Links */}
       <ul className="flex flex-nowrap items-center gap-2 sm:gap-4 md:gap-6 text-xs sm:text-sm md:text-base whitespace-nowrap">
         {[
-          { label: 'Home', path: '/' },
+          
           { label: 'About', path: '/about-us' },
           { label: 'Contact', path: '/contact-us' },
           { label: 'Complaint', path: '/register-complaints' },
