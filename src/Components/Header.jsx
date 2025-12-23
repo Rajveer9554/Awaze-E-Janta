@@ -66,9 +66,22 @@
 
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import {NavLink, useNavigate } from 'react-router-dom';
+import { manualLogout } from '../utility/utilityService';
+import { ToastContainer, toast } from 'react-toastify';
 
 function Header() {
+   const navigate = useNavigate();
+   
+  const token = localStorage.getItem('token');
+
+  const handleLogout = () => {
+    toast.error('Logged out successfully!');
+
+    setTimeout(() => {
+      manualLogout();
+    }, 500);
+  };
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-blue-900 h-16 px-2 sm:px-6 md:px-12 lg:px-24 flex items-center justify-between">
       
@@ -100,7 +113,27 @@ function Header() {
             </NavLink>
           </li>
         ))}
+
+           {/* Logout Button - sirf tab dikhao jab user logged in ho */}
+        {token && (
+          <li className="cursor-pointer">
+            <button
+              onClick={handleLogout}
+               
+              className="bg-red-600 text-white px-2 py-1 sm:px-3 sm:py-2 rounded-full hover:bg-red-700 transition font-semibold"
+            >
+              Logout
+            </button>
+            <ToastContainer 
+             position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+            />
+          </li>
+        )}
       </ul>
+ 
+
     </nav>
   );
 }

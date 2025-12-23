@@ -12,6 +12,7 @@ import ComplaintManually from './pages/ComplaintManually.jsx';
 import ComplaintPreview from './pages/ComplaintmanuallPreview.jsx';
 import Login from './pages/Login.jsx';
 import PrivateRoute from './Components/PrivateRoute.jsx';
+import Otp from './pages/Otp.jsx';
 
 
 
@@ -37,6 +38,10 @@ function App() {
        <Route path="complaint-mannually" element={<ComplaintManually />} />
         <Route path="complaint-preview" element={<ComplaintPreview />} />
         <Route path='login' element={<Login />} />
+        <Route path='otp' element={<Otp />} />
+
+       
+
        
         
        </Route>

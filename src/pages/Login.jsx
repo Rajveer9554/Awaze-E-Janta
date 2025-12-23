@@ -3,6 +3,8 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../services/UserService.js';
+import { ToastContainer, toast } from 'react-toastify';
+
 function Login () {
   const navigate = useNavigate();
    const [ formData,setFormData]= useState({
@@ -32,7 +34,7 @@ function Login () {
      const newErrors ={};
 
      // email validation 
-     if(!formData.email.trim()){
+     if(!formData.email || !formData.email.trim()){
       newErrors.email="Email is required";
      }
      else if (!/^\S+@\S+\.\S+$/.test(formData.email.trim())){
@@ -90,6 +92,7 @@ const handleSubmit = async (e) => {
   const validationErrors = validate();
   if (Object.keys(validationErrors).length > 0) {
     setErrors(validationErrors);
+    toast.error('Please fill the field.');
     return;
   }
 
@@ -99,14 +102,19 @@ const handleSubmit = async (e) => {
     // ✅ Save token before navigating
     localStorage.setItem("token", data.token);
 
-    alert("Login Successful!");
+    // alert("Login Successful!");
+    toast.success('Login Successful!');
     console.log("Login data submitted:", data);
 
     // ✅ Redirect to complaints page
+    setTimeout(() => {
     navigate(data.redirect || "/register-complaints");
-  } catch (error) {
+  } ,1000);
+}
+  catch (error) {
     console.error("Login failed:", error);
-    alert("Login failed. Please try again.");
+    // alert("Login failed. Please try again.");
+    toast.error('Login failed. Please try again.');
   }
 };
 
@@ -132,8 +140,8 @@ const handleSubmit = async (e) => {
               onChange={handleChange}
 
               placeholder="Enter Email"
-              required
-              className={`w-full px-3 sm:px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none transition duration-200 text-sm sm:text-base ${
+              
+              className={`w-full px-3 sm:px-4 py-2 rounded-lg border focus:ring-2  focus:outline-none transition duration-200 text-sm sm:text-base ${
                 errors.email ?"border-red-500 focus:ring-red-400 " : "border-gray-300 focus:ring-indigo-500" 
               }`}
               
@@ -155,7 +163,7 @@ const handleSubmit = async (e) => {
              onChange={handleChange}
 
              placeholder='Enter Password'
-             required
+             
              className={`w-full px-3 sm:px-4 py-2 rounded-lg border focus:ring-2 focus:outline-none transition duration-200 text-sm sm:text-base ${
                 errors.password
                   ? "border-red-500 focus:ring-red-400"
@@ -181,8 +189,14 @@ const handleSubmit = async (e) => {
           >
             Login
           </button>
+       
 
         </form>
+         <ToastContainer 
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          />
     </div>
     </div>
   )

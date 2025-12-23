@@ -26,12 +26,7 @@ function RegisterComplaints() {
       content:"Here you can easily registered a complaints with Voice & Video",
       buttonText: "File Complaints",
     },
-    // {
-    //    id:4,
-    //   title:"Track Complaints Status ",
-    //   content:"Here you can easily track you Complaints",
-    //   buttonText: "Track",
-    // },
+   
     
   ])
   ///tracking complaints

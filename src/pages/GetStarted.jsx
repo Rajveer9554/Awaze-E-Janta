@@ -145,6 +145,9 @@
 import React, { useState, useEffect } from "react";
 import { registerUser } from "../services/UserService";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+
 
 function GetStarted() {
   const [formData, setFormData] = useState({
@@ -154,11 +157,12 @@ function GetStarted() {
     age: "",
     gender: "",
   });
-
+ const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
+  
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -170,10 +174,21 @@ function GetStarted() {
     // yahan backend API call kar sakte ho (fetch/axios se)
      try {
       const data = await registerUser(formData);
-      alert("✅ User registered successfully!");
-      console.log(data);
+
+     // save email for otp
+     localStorage.setItem("email", formData.email);
+     toast.success("OTP sent to your email!");
+
+     
+      // ✅ Redirect to complaints page
+      setTimeout(() => {
+    navigate( "/otp");
+      },800);
+    
     } catch (error) {
       alert("❌ Error: " + error.msg);
+      toast.error("Registration failed:", error);
+
     }
 
   };
@@ -197,7 +212,7 @@ function GetStarted() {
               value={formData.username}
               onChange={handleChange}
               placeholder="Enter User Name"
-              required
+              
               className="w-full px-3 sm:px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none transition duration-200 text-sm sm:text-base"
             />
           </div>
@@ -213,7 +228,7 @@ function GetStarted() {
               value={formData.email}
               onChange={handleChange}
               placeholder="Enter Email"
-              required
+              
               className="w-full px-3 sm:px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none transition duration-200 text-sm sm:text-base"
             />
           </div>
@@ -229,7 +244,7 @@ function GetStarted() {
               value={formData.password}
               onChange={handleChange}
               placeholder="Enter Password"
-              required
+              
               className="w-full px-3 sm:px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none transition duration-200 text-sm sm:text-base"
             />
           </div>
@@ -245,7 +260,7 @@ function GetStarted() {
               value={formData.age}
               onChange={handleChange}
               placeholder="Enter Age"
-              required
+              
               className="w-full px-3 sm:px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none transition duration-200 text-sm sm:text-base"
             />
           </div>
@@ -285,6 +300,7 @@ function GetStarted() {
             Sign Up
           </button>
         </form>
+        <ToastContainer />
 
         <p className="text-center text-gray-600 text-xs sm:text-sm mt-4">
           Already have an account?{" "}
