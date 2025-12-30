@@ -28,40 +28,40 @@ export const setupAutoLogout = () => {
   }
 };
 
-// export const setupInactivityLogout = (minutes = 10) => {
-//   let inactivityTimer;
+export const setupInactivityLogout = (minutes = 10) => {
+  let inactivityTimer;
   
-//   const resetTimer = () => {
-//     clearTimeout(inactivityTimer);
-//     inactivityTimer = setTimeout(() => {
-//       localStorage.removeItem('token');
-//       window.location.href = '/login';
-//       alert('Logged out due to inactivity');
-//     }, minutes * 60 * 1000);
-//   };
+  const resetTimer = () => {
+    clearTimeout(inactivityTimer);
+    inactivityTimer = setTimeout(() => {
+      localStorage.removeItem('token');
+      window.location.href = '/login';
+      alert('Logged out due to inactivity');
+    }, minutes * 60 * 1000);
+  };
 
-//   const events = ['mousemove', 'keypress', 'click', 'scroll', 'touchstart'];
+  const events = ['mousemove', 'keypress', 'click', 'scroll', 'touchstart'];
   
-//   events.forEach(event => {
-//     document.addEventListener(event, resetTimer, true);
-//   });
+  events.forEach(event => {
+    document.addEventListener(event, resetTimer, true);
+  });
 
-//   resetTimer();
+  resetTimer();
 
-//   return () => {
-//     clearTimeout(inactivityTimer);
-//     events.forEach(event => {
-//       document.removeEventListener(event, resetTimer, true);
-//     });
-//   };
-// };
+  return () => {
+    clearTimeout(inactivityTimer);
+    events.forEach(event => {
+      document.removeEventListener(event, resetTimer, true);
+    });
+  };
+};
 
-// export const setupTabCloseLogout = () => {
-//   window.addEventListener('beforeunload', () => {
-//     localStorage.removeItem('token');
-//     localStorage.removeItem('user');
-//   });
-// };
+export const setupTabCloseLogout = () => {
+  window.addEventListener('beforeunload', () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+  });
+};
 
 export const manualLogout = async () => {
   try {

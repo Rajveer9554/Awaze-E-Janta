@@ -27,7 +27,8 @@ function Otp() {
 
       toast.success(res.data.message || res.data.msg);
 
-      if (res.data.message === "OTP Verified" || res.data.msg?.includes("User verified")) {
+      if (res.data.message === "OTP Verified" ||(res.data.msg && res.data.msg.includes("User verified")))
+ {
         console.log("navigate matched")
         setTimeout(() => {
           navigate("/register-complaints");
