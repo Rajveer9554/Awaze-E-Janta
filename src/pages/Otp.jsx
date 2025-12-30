@@ -25,7 +25,7 @@ function Otp() {
       const res = await API.post("/otp/verify-otp", { email, otp });
       console.log("OTP RESPONSE:", res.data);
 
-      toast.success(res.data.message || res.data.msg);
+      toast.success(res.data.message );
 
 //       if (res.data.message === "OTP Verified" ||(res.data.msg && res.data.msg.includes("User verified")))
 //  {
@@ -41,8 +41,9 @@ function Otp() {
     }, 800);
   }
 } catch (err) {
-      toast.error(err.msg || "OTP verification failed");
-    }
+  toast.error(err.response?.data?.message || "OTP verification failed");
+}
+
   };
 
   return (
