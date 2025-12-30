@@ -27,14 +27,20 @@ function Otp() {
 
       toast.success(res.data.message || res.data.msg);
 
-      if (res.data.message === "OTP Verified" ||(res.data.msg && res.data.msg.includes("User verified")))
- {
-        console.log("navigate matched")
-        setTimeout(() => {
-          navigate("/register-complaints");
-        }, 800);
-      }
-    } catch (err) {
+//       if (res.data.message === "OTP Verified" ||(res.data.msg && res.data.msg.includes("User verified")))
+//  {
+//         console.log("navigate matched")
+//         setTimeout(() => {
+//           navigate("/register-complaints");
+//         }, 800);
+//       }
+//     } 
+  if (res.data.success) {
+    setTimeout(() => {
+      navigate("/register-complaints");
+    }, 800);
+  }
+} catch (err) {
       toast.error(err.msg || "OTP verification failed");
     }
   };
