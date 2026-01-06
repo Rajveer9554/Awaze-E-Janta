@@ -82,6 +82,9 @@ function Header() {
     setTimeout(() => {
       manualLogout();
     }, 500);
+     localStorage.removeItem("token"); // JWT token clear
+  navigate("/login"); // redirect to login
+
   };
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-blue-900 h-16 px-2 sm:px-6 md:px-12 lg:px-24 flex items-center justify-between">
