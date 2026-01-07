@@ -13,6 +13,7 @@ import ComplaintPreview from './pages/ComplaintmanuallPreview.jsx';
 import Login from './pages/Login.jsx';
 import PrivateRoute from './Components/PrivateRoute.jsx';
 import Otp from './pages/Otp.jsx';
+import UserProfie from './pages/UserProfie.jsx';
 
 
 
@@ -39,6 +40,7 @@ function App() {
         <Route path="complaint-preview" element={<ComplaintPreview />} />
         <Route path='login' element={<Login />} />
         <Route path='otp' element={<Otp />} />
+        <Route path='user-profile' element={<PrivateRoute><UserProfie /></PrivateRoute>} />
 
        
 

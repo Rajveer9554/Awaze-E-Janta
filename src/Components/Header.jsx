@@ -108,7 +108,7 @@ function Header() {
           { label: 'About', path: '/about-us' },
           { label: 'Contact', path: '/contact-us' },
           { label: 'Complaint', path: '/register-complaints' },
-          { label: 'SignUp', path: '/get-started' },
+         
           
         ].map(({ label, path }) => (
           <li key={label} className="cursor-pointer">
@@ -131,7 +131,7 @@ function Header() {
             <button
               onClick={handleLogout}
                
-              className="bg-red-600 text-white px-2 py-1 sm:px-3 sm:py-2 rounded-full hover:bg-red-700 transition font-semibold"
+              className=" border-2 border-red-600 text-white px-2 py-1 sm:px-3 sm:py-2 rounded-full hover:bg-red-700 transition font-semibold"
             >
               Logout
             </button>
@@ -141,7 +141,41 @@ function Header() {
           hideProgressBar={false}
             />
           </li>
+          
         )}
+
+        {/* Conditional: Show Profile if logged in */}
+        {token && (
+          <li className="cursor-pointer">
+            <NavLink
+              to="/user-profile"
+              className={({ isActive }) =>
+                isActive
+                  ? 'text-black font-semibold px-2 py-1 sm:px-3 sm:py-2 rounded-full'
+                  : 'text-white hover:bg-green-400 hover:text-black rounded-2xl border-2 px-2 py-1 sm:px-3 sm:py-2'
+              }
+            >
+              Profile
+            </NavLink>
+          </li>
+        )}
+         {/* Conditional: Show SignUp if NOT logged in */}
+        {!token && (
+          <li className="cursor-pointer">
+            <NavLink
+              to="/get-started"
+              className={({ isActive }) =>
+                isActive
+                  ? 'text-black font-semibold bg-white px-2 py-1 sm:px-3 sm:py-2 rounded-full'
+                  : 'text-white hover:text-blue-400'
+              }
+            >
+              SignUp
+            </NavLink>
+          </li>
+        )}
+
+
       </ul>
  
 

@@ -56,17 +56,17 @@ export const setupInactivityLogout = (minutes = 10) => {
   };
 };
 
-export const setupTabCloseLogout = () => {
-  window.addEventListener('beforeunload', () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-  });
-};
+// export const setupTabCloseLogout = () => {
+//   window.addEventListener('beforeunload', () => {
+//     localStorage.removeItem('token');
+//     localStorage.removeItem('user');
+//   });
+// };
 
 export const manualLogout = async () => {
   try {
     const token = localStorage.getItem('token');
-    await fetch('http://localhost:8081/api/logout', {
+    await fetch(`${import.meta.env.VITE_API_URL}/api/logout`, {
       method: 'POST',
       headers: { 
         'Authorization': `Bearer ${token}`,

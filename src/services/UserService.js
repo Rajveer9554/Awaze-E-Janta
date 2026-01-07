@@ -71,8 +71,20 @@ export const loginUser = async (formData) => {
 
 // ✅ Get user profile (Protected)
 export const getUserProfile = async () => {
-  return API.get("/auth/check").then((res) => res.data);
+  return API.get("/profile").then((res) => res.data);
 };
+
+// ✅ Update user profile (Protected)
+export const updateUserProfile = async (profileData) => {
+  return API.put("/update-profile", profileData).then((res) => res.data);
+};
+
+
+
+// ✅ Get user profile (Protected)
+// export const getUserProfile = async () => {
+//   return API.get("/auth/check").then((res) => res.data);
+// };
 
 
 //// register complaint
