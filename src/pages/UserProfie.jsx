@@ -4,6 +4,7 @@ import API from '../api/axios';
 import defaultAvatar from '../assets/defaultAvatar.png';
 import { getUserProfile } from '../services/UserService';
 import { updateUserProfile } from '../services/UserService';
+import { FaUser } from 'react-icons/fa';
 
 function UserProfie() {
 const [profile, setProfile] = useState({
@@ -75,14 +76,14 @@ const [profile, setProfile] = useState({
 
 
   return (
-    <div className='min-h-screen p-4 sm:p-6 md:p-10 justify-center items-center '>
+    <div className='min-h-screen  p-4 sm:p-6 md:p-10 justify-center items-center  '>
       <div className='mx-auto mt-10  bg-white shadow-lg rounded-lg w-full max-w-md sm:max-w-lg md:max-w-2xl p-6 sm:p-8 md:p-10 space-y-6 border-2 border-blue-500'>
-        <h1 className='text-xl sm:text-2xl md:text-3xl font-bold text-center text-blue-700'>
+        {/* <h1 className='text-xl sm:text-2xl md:text-3xl font-bold text-center text-blue-700'>
             WelCome back to your own Profile</h1>
         <p className='text-center  text-sm sm:text-base bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent'>Manage your account details and update your information
-</p>
+</p> */}
 {/* Profiule image */}
-<div className='flex flex-col items-center space-y-2'>
+<div className='flex flex-col items-center  bg-gradient-to-r from-blue-300 to-purple-400 p-4 rounded-lg'>
     <img 
     src={preview || defaultAvatar}
     alt="Profile"
@@ -92,19 +93,32 @@ const [profile, setProfile] = useState({
             Change Image
             <input type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
           </label>
+        <h2 className="mt-4 sm:mt-6 md:mt-8 text-2xl font-bold">{profile.username || "Your Name"}</h2>
+  <p className="text-sm opacity-80">{profile.email || "your@email.com"}</p>
+  
 
     
 </div>
+<h1 className='text-xl sm:text-2xl md:text-3xl font-bold text-center text-blue-700'>
+            WelCome back to your own Profile</h1>
+        <p className='text-center  text-sm sm:text-base bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent'>Manage your account details and update your information
+</p>
 {/* Form */}
 <form onSubmit={handleSubmit} className="space-y-4">
+        <div className='relative '>
           <input
             type="text"
             name="username"
             value={profile.username}
             onChange={handleChange}
             placeholder="Full Name"
-            className="w-full border rounded-md px-3 py-2 focus:ring focus:ring-blue-300 text-sm sm:text-base"
+            className="w-full border  rounded-md px-3 py-2 focus:ring focus:ring-blue-300 text-sm sm:text-base"
           />
+        <span className="absolute  top-2.5 text-gray-400">
+  
+</span>
+
+          </div>
           <input
             type="email"
             name="email"
@@ -153,7 +167,7 @@ const [profile, setProfile] = useState({
         <button
             type="submit"
             disabled={loading}
-            className="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 disabled:opacity-60 text-sm sm:text-base"
+            className="w-full  mt-6 py-3 rounded-xl text-white font-semibold bg-gradient-to-r from-indigo-500 to-purple-500 hover:scale-102 transition disabled:opacity-60 text-sm sm:text-base"
           >
             {loading ? "Saving..." : "Save Changes"}
           </button>
