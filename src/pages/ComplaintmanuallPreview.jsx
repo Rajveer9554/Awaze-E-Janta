@@ -2,12 +2,47 @@
 
 import React from "react";
 import { useLocation } from "react-router-dom";
+import API from "../api/axios";
 
 const ComplaintPreview = () => {
   const { state } = useLocation();
   const { name, mobile, email, title, description, department, location } = state || {};
   const [loading, setLoading] = React.useState(false);
   const [message, setMessage] = React.useState("");
+
+  // const handleSendComplaint = async () => {
+  //   try {
+  //     setLoading(true);
+  //     const res = await fetch("http://localhost:8081/api/complaints/send", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify(state) // send complaint data to backend
+  //     });
+
+  //     const data = await res.json();
+  //     setMessage(data.message);
+  //   } catch (error) {
+  //     setMessage("❌ Failed to send complaint. Please try again.");
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+    const handleSendComplaint = async () => {
+    try {
+      setLoading(true);
+
+      // Axios instance se POST request
+      const res = await API.post("/complaints/send", state);
+
+      // Axios response me data directly hota hai
+      setMessage(res.data.message);
+    } catch (error) {
+      // Global error handler se error object {status, message} milega
+      setMessage(`❌ ${error.message}`);
+    } finally {
+      setLoading(false);
+    }
+  };
 
 
 
@@ -57,7 +92,7 @@ const ComplaintPreview = () => {
           </p>
         </div>
         <button
-         
+         onClick={handleSendComplaint}
           disabled={loading}
           className="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 disabled:opacity-60"
         >

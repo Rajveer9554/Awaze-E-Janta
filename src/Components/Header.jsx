@@ -6,10 +6,11 @@ import {NavLink, useNavigate } from 'react-router-dom';
 import { manualLogout } from '../utility/utilityService';
 import { ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import { FaUserAlt } from "react-icons/fa";
 
 
 
-function Header({ open, setOpen }) {
+function Header() {
    const navigate = useNavigate();
    
   const token = localStorage.getItem('token');
@@ -91,7 +92,7 @@ function Header({ open, setOpen }) {
                   : 'text-white hover:bg-green-400 hover:text-black rounded-2xl border-2 border-green-600 px-2 py-1 sm:px-3 sm:py-2'
               }
             >
-              User Dashboard
+              <FaUserAlt className="inline-block mr-1 mb-1" />
             </NavLink>
           </li>
         )}
@@ -102,7 +103,7 @@ function Header({ open, setOpen }) {
               to="/get-started"
               className={({ isActive }) =>
                 isActive
-                  ? 'text-white font-semibold bg-white px-2 py-1 sm:px-3 sm:py-2 rounded-full'
+                  ? 'text-white font-semibold bg-green-600 px-2 py-1 sm:px-3 sm:py-2 rounded-full'
                   : 'text-white hover:text-blue-400'
               }
             >
