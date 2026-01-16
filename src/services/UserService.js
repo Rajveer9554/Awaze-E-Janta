@@ -65,6 +65,10 @@ export const loginUser = async (formData) => {
   if (data.token) {
     localStorage.setItem("token", data.token); // ✅ Save JWT
   }
+  if (data.user) {
+    localStorage.setItem("user", JSON.stringify(data.user)); // ✅ Save user object
+  }
+
 
   return data;
 };

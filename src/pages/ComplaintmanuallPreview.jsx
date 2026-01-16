@@ -5,6 +5,7 @@ import { useLocation,useNavigate } from "react-router-dom";
 import API from "../api/axios";
 import { ToastContainer, toast } from "react-toastify";
 
+
 const ComplaintPreview = () => {
   const { state } = useLocation();
   const { name, mobile, email, title, description, department, location } = state || {};
@@ -32,9 +33,17 @@ const ComplaintPreview = () => {
     const handleSendComplaint = async () => {
     try {
       setLoading(true);
+      const user = JSON.parse(localStorage.getItem("user")); // ✅ get logged-in user
+
+    const complaintData = {
+      ...state,            // use preview state fields
+      userId: user._id,    // ✅ inject userId
+    };
+     
+
 
       // Axios instance se POST request
-      const res = await API.post("/complaints/send", state);
+      const res = await API.post("/complaints/send", complaintData);
 
       // Axios response me data directly hota hai
       setMessage(res.data.message);

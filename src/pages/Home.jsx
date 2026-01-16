@@ -12,6 +12,7 @@ import {  motion,AnimatePresence } from "framer-motion";
 import { Star } from "lucide-react";
 import Banner from "./Banner.jsx";
 import banner2 from "../assets/banner2.png";
+import API from "../api/axios.js";
 
 function Home() {
   const [services] = useState([
@@ -40,10 +41,30 @@ function Home() {
       icon: <MdSecurity size={60} />,
     },
   ]);
+  // stats state
+  const [stats, setStats] = useState({
+    totalComplaints: 0,
+    activeUsers: 0,
+    
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    // Fetch stats from backend API
+    const fetchstats = async() =>{
+      try {
+        const res = await API.get("/stats");
+         setStats({
+        totalComplaints: res.data.totalComplaints,
+        activeUsers: res.data.activeUsers
+      });
+
+    } catch (error) {
+        console.error("Error fetching stats:", error);
+    }
+  }; fetchstats();
+  },
+   []);
 
   const testimonials = useMemo(
     () => [
@@ -68,11 +89,13 @@ function Home() {
     show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
-  const [data] = useState([
-    { id: 1, title: "Total Complaints", count: "1,234", icon: <FaRegListAlt size={60} /> },
-    { id: 2, title: "Active Users", count: "200", icon: <FaUsers size={60} /> },
-    { id: 3, title: "Cities Covered", count: "100", icon: <FaCity size={60} /> },
-  ]);
+  // ✅ derive data from stats (not useState)
+const data = [
+  { id: 1, title: "Total Complaints", count: stats.totalComplaints, icon: <FaRegListAlt size={60} /> },
+  { id: 2, title: "Active Users", count: stats.activeUsers, icon: <FaUsers size={60} /> },
+  { id: 3, title: "Cities Covered", count: "100", icon: <FaCity size={60} /> },
+];
+
 
   return (
     <div className="w-full overflow-hidden mt-7">

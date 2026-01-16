@@ -10,7 +10,9 @@ function ComplaintManually() {
     window.scrollTo(0, 0);
   }, []);
 
+
   const [formData, setFormData] = useState({
+    
     name: "",
     mobile: "",
     email: "",
@@ -21,7 +23,7 @@ function ComplaintManually() {
     file: null,
     location: null
   });
-
+  
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
@@ -65,6 +67,9 @@ function ComplaintManually() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
+      const user = JSON.parse(localStorage.getItem("user"));
+    const complaintData = { ...formData, userId: user._id };
+
       alert("Complaint Application Generated! Please proceed to Preview Page.");
       navigate('/complaint-preview', { state: formData });
     }
