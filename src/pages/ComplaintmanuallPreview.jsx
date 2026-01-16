@@ -42,7 +42,7 @@ const ComplaintPreview = () => {
       // ✅ Auto navigate after success
       if (res.data.success) {
         setTimeout(() => {
-          navigate("/register-complaints-manual"); // 👈 apna route yaha dalna
+          navigate("/complaint-mannually"); // 👈 apna route yaha dalna
         }, 1500); // thoda delay taaki success message dikhe
       }
 
