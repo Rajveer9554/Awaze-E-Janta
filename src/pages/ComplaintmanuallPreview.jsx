@@ -1,14 +1,16 @@
 
 
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation,useNavigate } from "react-router-dom";
 import API from "../api/axios";
+import { ToastContainer, toast } from "react-toastify";
 
 const ComplaintPreview = () => {
   const { state } = useLocation();
   const { name, mobile, email, title, description, department, location } = state || {};
   const [loading, setLoading] = React.useState(false);
   const [message, setMessage] = React.useState("");
+  const navigate = useNavigate();
 
   // const handleSendComplaint = async () => {
   //   try {
@@ -36,6 +38,14 @@ const ComplaintPreview = () => {
 
       // Axios response me data directly hota hai
       setMessage(res.data.message);
+      toast.success(res.data.message);
+      // ✅ Auto navigate after success
+      if (res.data.success) {
+        setTimeout(() => {
+          navigate("/register-complaints-manual"); // 👈 apna route yaha dalna
+        }, 1500); // thoda delay taaki success message dikhe
+      }
+
     } catch (error) {
       // Global error handler se error object {status, message} milega
       setMessage(`❌ ${error.message}`);
