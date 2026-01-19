@@ -101,10 +101,10 @@ const data = [
     <div className="w-full overflow-hidden mt-7">
 
       {/* HERO SECTION */}
-      <div className="flex flex-col md:flex-col items-center justify-between mt-auto gap-5 md:gap-10">
+      <div className="flex flex-col md:flex-col lg:flex-row items-center justify-between mt-auto lg:px-20 lg:mb-10  mb-10 gap-5 md:gap-10">
 
         {/* Image */}
-        <div className="w-full md:w-full">
+        <div className="w-full   ">
           {/* <img
             src="https://img.freepik.com/free-vector/student-activism-abstract-illustration_335657-5342.jpg"
             alt="banner"
@@ -126,7 +126,7 @@ const data = [
       </div>
 
       {/* Complaint Section */}
-      <div className="bg-slate-300 rounded-3xl shadow-xl mx-5 md:mx-10 p-5 md:p-10 flex flex-col md:flex-row items-center justify-between">
+      <div className="bg-slate-300 rounded-3xl shadow-xl mx-5 md:mx-10 p-5 md:p-10 flex flex-col mb-10 md:flex-row items-center justify-between">
 
         <h2 className="text-center text-3xl md:text-5xl font-bold space-x-2">
           <span className="text-blue-600">Share</span>
