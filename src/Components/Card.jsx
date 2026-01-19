@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 export function CardOne({ title, content, icon,count }) {
   return (
     <div
-      className=" shadow-lg rounded-2xl p-6  w-72 m-9 flex flex-col items-center text-black bg-white  shadow-blue-500 "
+      className=" shadow-lg rounded-2xl p-6  w-72 m-9 flex flex-col items-center text-black bg-white  bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 "
       // style={{ backgroundImage: `url(${bgImage})` }}
     >
       {/* Overlay for better readability */}

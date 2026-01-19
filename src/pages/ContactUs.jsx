@@ -20,7 +20,7 @@ const team = [
     photo: rajveerPhoto,
     phone: "+91 9554120959",
     email: "rajveer786067@gmail.com",
-    jobplace:"Developer of Awaze-E-Janata"
+    
   },
   {
     name: "Aman Tiwari",
@@ -32,13 +32,13 @@ const team = [
     name: "Raj Yadav",
     photo: member3Photo,
     phone: "+91 99887 66554",
-    email: "member3@example.com",
+    email: "mr.rajyadav272207@gmail.com",
   },
 ];
 
 export default function ContactUs() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-blue-50 flex flex-col items-center pt-32 px-5 md:px-20">
+    <div className="min-h-screen bg-linear-to-b from-blue-500 via-white to-green-300 flex flex-col items-center pt-32 px-5 md:px-20">
       {/* Heading */}
       <motion.h1
         initial={{ y: -50, opacity: 0 }}
@@ -54,7 +54,7 @@ export default function ContactUs() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mb-16"
+        className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mb-16"
       >
         {team.map((member) => (
           <motion.div
@@ -62,10 +62,10 @@ export default function ContactUs() {
             whileHover={{ scale: 1.05 }}
             className="relative overflow-visible rounded-3xl transition-transform"
           >
-            {/* Gradient Glow behind each card */}
+            {/* linear Glow behind each card */}
             <div
               aria-hidden="true"
-              className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-400 via-indigo-500 to-pink-500 blur-3xl opacity-60 -z-10 pointer-events-none transform scale-105 animate-gradient-bg"
+              className="absolute inset-0 rounded-3xl bg-linear-to-r from-blue-400 via-indigo-500 to-pink-500 blur-3xl opacity-60 -z-10 pointer-events-none transform scale-105 animate-linear-bg"
             />
 
             {/* Actual white card content */}
@@ -112,7 +112,7 @@ export default function ContactUs() {
         {/* Gradient shadow / glow behind form */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-400 via-indigo-500 to-pink-500 blur-3xl opacity-65 -z-10 pointer-events-none transform scale-102 animate-gradient-bg"
+          className="absolute inset-0 rounded-3xl bg-linear-to-r from-blue-400 via-indigo-500 to-pink-500 blur-3xl opacity-65 -z-10 pointer-events-none transform scale-102 animate-linear-bg"
         />
 
         <div className="bg-white rounded-3xl shadow-xl p-10">
@@ -136,7 +136,7 @@ export default function ContactUs() {
             />
             <button
               type="submit"
-              className="bg-gradient-to-r from-indigo-500 to-blue-600 text-white font-bold py-4 rounded-xl hover:opacity-90 transition-all duration-300 shadow-[0_8px_30px_rgba(59,130,246,0.25)]"
+              className="bg-linear-to-r from-indigo-500 to-blue-600 text-white font-bold py-4 rounded-xl hover:opacity-90 transition-all duration-300 shadow-[0_8px_30px_rgba(59,130,246,0.25)]"
             >
               Submit
             </button>

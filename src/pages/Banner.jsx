@@ -23,9 +23,9 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="banner">
+    <div className="banner ">
       <div
-        className="banner-track"
+        className="banner-track "
         style={{ transform: `translateX(-${index * 100}%)` }}
       >
         {images.map((img, i) => (

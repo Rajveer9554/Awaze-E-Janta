@@ -1,3 +1,4 @@
+import { toast} from 'react-toastify';
 export const setupAutoLogout = () => {
   const token = localStorage.getItem('token');
   if (token) {
@@ -15,6 +16,7 @@ export const setupAutoLogout = () => {
           localStorage.removeItem('token');
           window.location.href = '/login';
           alert('Session expired. Please login again.');
+          toast.info("Session expired. Please login again.");
         }, timeUntilExpiry);
       } else {
         localStorage.removeItem('token');
@@ -29,9 +31,9 @@ export const setupAutoLogout = () => {
 };
 
 export const setupInactivityLogout = (minutes = 10) => {
-  let inactivityTimer;
+  let inactivityTimer; //Ye logout ka timer store karega
   
-  const resetTimer = () => {
+  const resetTimer = () => { //Purana timer clear karega aur naya set karega
     clearTimeout(inactivityTimer);
     inactivityTimer = setTimeout(() => {
       localStorage.removeItem('token');
@@ -39,7 +41,7 @@ export const setupInactivityLogout = (minutes = 10) => {
       alert('Logged out due to inactivity');
     }, minutes * 60 * 1000);
   };
-
+//Ye sab user active hone ke signs hain
   const events = ['mousemove', 'keypress', 'click', 'scroll', 'touchstart'];
   
   events.forEach(event => {

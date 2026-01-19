@@ -2,16 +2,16 @@ import axios from "axios";
 
 
 const API = axios.create({
-  // baseURL: "http://localhost:8081/api",
-  baseURL: `${import.meta.env.VITE_API_URL}/api`,
-  timeout: 10000,
+  baseURL: "http://localhost:8081/api",
+  // baseURL: `${import.meta.env.VITE_API_URL}/api`,
+  timeout: 10000, //Request fails if server doesn’t respond within 10 seconds
   headers: {
-    "Content-Type": "application/json",
+    "Content-Type": "application/json", //tell server we are sending JSON data
   },
 });
 
 // ✅ Auto attach token
-API.interceptors.request.use((config) => {
+API.interceptors.request.use((config) => {   //Interceptors run before request is sent
   const token = localStorage.getItem("token");
   if (token) config.headers.Authorization = `Bearer ${token}`;
   return config;

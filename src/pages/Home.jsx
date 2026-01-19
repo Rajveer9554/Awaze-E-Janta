@@ -101,10 +101,10 @@ const data = [
     <div className="w-full overflow-hidden mt-7">
 
       {/* HERO SECTION */}
-      <div className="flex flex-col md:flex-row items-center justify-between px-5 md:px-20 py-10 gap-10">
+      <div className="flex flex-col md:flex-col items-center justify-between mt-auto gap-5 md:gap-10">
 
         {/* Image */}
-        <div className="w-full md:w-1/2 ">
+        <div className="w-full md:w-full">
           {/* <img
             src="https://img.freepik.com/free-vector/student-activism-abstract-illustration_335657-5342.jpg"
             alt="banner"
@@ -115,7 +115,7 @@ const data = [
         
 
         {/* Text */}
-        <div className="w-full md:w-1/2 text-center md:text-left space-y-4 ">
+        <div className="w-full md:w-full px-5 md:px-10 text-center md:text-left md:mb-5 space-y-1 ">
           <h1 className="font-bold text-4xl md:text-7xl text-blue-800">Raise Your Voice</h1>
           <h2 className="font-bold text-3xl md:text-6xl text-green-800">For a Better City</h2>
           <p className="text-xl md:text-2xl font-semibold">
@@ -126,7 +126,7 @@ const data = [
       </div>
 
       {/* Complaint Section */}
-      <div className="bg-slate-300 rounded-3xl shadow-xl mx-5 md:mx-20 p-5 md:p-10 flex flex-col md:flex-row items-center justify-between">
+      <div className="bg-slate-300 rounded-3xl shadow-xl mx-5 md:mx-10 p-5 md:p-10 flex flex-col md:flex-row items-center justify-between">
 
         <h2 className="text-center text-3xl md:text-5xl font-bold space-x-2">
           <span className="text-blue-600">Share</span>
@@ -153,11 +153,11 @@ const data = [
           />
           
         </div> */}
-        <div className="w-full md:w-1/2 mx-auto mt-10 relative group">
+        <div className="w-full md:w-1/2 mx-auto mt-7 md:mt-10 relative group  ">
   
   {/* Gradient Glow Border */}
   <div className="absolute -inset-1 rounded-xl 
-    bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500
+    bg-linear-to-r from-pink-500 via-purple-500 to-blue-500
     blur-md opacity-70
     group-hover:opacity-100 transition duration-500">
   </div>
@@ -166,7 +166,7 @@ const data = [
   <img
     src={banner2}
     alt="banner"
-    className="relative w-full rounded-xl bg-black"
+    className="relative w-full md:w-full rounded-3xl "
   />
 
 </div>
@@ -175,7 +175,7 @@ const data = [
       {/* SERVICES */}
       <h1 className="text-4xl font-bold text-center mt-16 text-blue-800">Why Choose Us?</h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-5 md:px-20 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  px-5 md:px-20 mt-10">
         {services.map((card) => (
           <CardOne key={card.id} title={card.title} content={card.content} icon={card.icon} />
         ))}
