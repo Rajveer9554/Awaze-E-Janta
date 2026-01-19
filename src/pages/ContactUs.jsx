@@ -7,6 +7,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/20/solid";
+import API from "../api/axios";
+import { useState } from "react";
+import { ToastContainer,toast } from "react-toastify";
 
 // Local photos import
 import rajveerPhoto from "../assets/rajveer.jpg";
@@ -37,6 +40,32 @@ const team = [
 ];
 
 export default function ContactUs() {
+  
+  const[form, setForm]=useState("");
+
+  const handleChange = (e) => {
+    
+     setForm({
+      ...form,[e.target.name]:e.target.value
+     })
+    };
+  
+    const handleSubmit =async (e)=>{
+      e.preventDefault();
+      try{
+       const res = await API.post("/contact",form);
+       
+        console.log( res.data.message);
+        toast.success(res.data.message);
+        setForm({name:"",email:"",message:""});
+      } catch (err){
+        console.log(err,"Failed to send message. Please try again later.");
+      }
+    };
+
+
+
+
   return (
     <div className="min-h-screen bg-linear-to-b from-blue-500 via-white to-green-300 flex flex-col items-center pt-32 px-5 md:px-20">
       {/* Heading */}
@@ -119,29 +148,43 @@ export default function ContactUs() {
           <h2 className="text-3xl font-bold text-center mb-6 text-blue-900">
             Send Us a Message
           </h2>
-          <form className="flex flex-col gap-5">
+          <form onSubmit={handleSubmit}
+          className="flex flex-col gap-5">
             <input
               type="text"
+              name="name"
+              value={form.name}
               placeholder="Your Name"
+              onChange={handleChange}
               className="border border-gray-300 rounded-xl p-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <input
               type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
               placeholder="Your Email"
               className="border border-gray-300 rounded-xl p-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <textarea
               placeholder="Your Message"
+              name="message"
+              value={form.message}
+              onChange={handleChange}
               className="border border-gray-300 rounded-xl p-4 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none h-32"
             />
             <button
               type="submit"
+              
               className="bg-linear-to-r from-indigo-500 to-blue-600 text-white font-bold py-4 rounded-xl hover:opacity-90 transition-all duration-300 shadow-[0_8px_30px_rgba(59,130,246,0.25)]"
             >
               Submit
             </button>
           </form>
+          
+
         </div>
+        
       </motion.div>
     </div>
   );
