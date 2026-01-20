@@ -10,7 +10,7 @@ import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/20/solid";
 import API from "../api/axios";
 import { useState } from "react";
 import { ToastContainer,toast } from "react-toastify";
-
+import { useEffect } from "react";
 // Local photos import
 import rajveerPhoto from "../assets/rajveer.jpg";
 import member2Photo from "../assets/aman.jpg";
@@ -40,7 +40,9 @@ const team = [
 ];
 
 export default function ContactUs() {
-  
+  useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   const[form, setForm]=useState("");
 
   const handleChange = (e) => {
