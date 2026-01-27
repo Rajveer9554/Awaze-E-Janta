@@ -35,17 +35,19 @@ const UserComplaintsDashboard = ({ userId }) => {
       <table className="w-full bg-white shadow-md rounded-lg">
         <thead>
           <tr className="bg-indigo-600 text-white">
-            <th className="p-2">Department</th>
-            <th className="p-2">Title</th>
-            <th className="p-2">Date</th>
+            <th className="p-2 text-left">Department</th>
+            <th className="p-2 text-left">Title</th>
+            <th className="p-2 text-left">Description</th>
+            <th className="p-2 text-left">Date</th>
           </tr>
         </thead>
         <tbody>
           {summary.complaints.map((c) => (
             <tr key={c._id} className="border-b">
-              <td className="p-2">{c.department}</td>
-              <td className="p-2">{c.title}</td>
-              <td className="p-2">{new Date(c.createdAt).toLocaleDateString()}</td>
+              <td className="p-3">{c.department}</td>
+              <td className="p-3">{c.title}</td>
+              <td className="p-3">{c.description}</td>
+              <td className="p-3">{new Date(c.createdAt).toLocaleDateString()}</td>
             </tr>
           ))}
         </tbody>

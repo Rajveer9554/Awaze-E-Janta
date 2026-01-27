@@ -4,6 +4,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {toast} from 'react-toastify';
 
 function ComplaintManually() {
   useEffect(() => {
@@ -40,17 +41,47 @@ function ComplaintManually() {
     }));
   };
 
+  // const captureLocation = () => {
+  //   navigator.geolocation.getCurrentPosition((pos) => {
+  //     setFormData((prevData) => ({
+  //       ...prevData,
+  //       location: {
+  //         lat: pos.coords.latitude,
+  //         lng: pos.coords.longitude
+  //       }
+  //     }));
+  //   });
+  // };
+
   const captureLocation = () => {
-    navigator.geolocation.getCurrentPosition((pos) => {
-      setFormData((prevData) => ({
-        ...prevData,
-        location: {
-          lat: pos.coords.latitude,
-          lng: pos.coords.longitude
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const lat = pos.coords.latitude;
+        const lng = pos.coords.longitude;
+
+        // Lucknow check (frontend feedback)
+        const lucknowLat = 26.8467, lucknowLng = 80.9462, radiusKm = 25;
+        const toRad = (val) => (val * Math.PI) / 180;
+        const R = 6371;
+        const dLat = toRad(lat - lucknowLat);
+        const dLng = toRad(lng - lucknowLng);
+        const a = Math.sin(dLat/2)**2 +
+          Math.cos(toRad(lucknowLat)) * Math.cos(toRad(lat)) *
+          Math.sin(dLng/2)**2;
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        const distance = R * c;
+
+        if (distance <= radiusKm) {
+          setFormData((prev) => ({ ...prev, location: { lat, lng } }));
+          alert("✅ Location verified: You are in Lucknow");
+        } else {
+          alert("❌ Currently service not available here");
         }
-      }));
-    });
+      },
+      () => alert("❌ Location access denied")
+    );
   };
+
 
   const validateForm = () => {
     let newErrors = {};
@@ -59,6 +90,11 @@ function ComplaintManually() {
     if (formData.email && !formData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) newErrors.email = "Valid email is required";
     if (!formData.title.trim()) newErrors.title = "Complaint Title is required";
     if (!formData.description.trim() || formData.description.length < 10) newErrors.description = "Description must be at least 10 characters";
+    // ✅ Location required check
+  if (!formData.location) {
+    newErrors.location = "Location is required. Please capture your GPS location.";
+  }
+
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -69,9 +105,10 @@ function ComplaintManually() {
     if (validateForm()) {
       const user = JSON.parse(localStorage.getItem("user"));
     const complaintData = { ...formData, userId: user._id };
+    toast.success("Complaint Application Generated! Please proceed to Preview Page.");
 
       alert("Complaint Application Generated! Please proceed to Preview Page.");
-      navigate('/complaint-preview', { state: formData });
+      navigate('/complaint-preview', { state: complaintData });
     }
   };
 
@@ -182,6 +219,7 @@ function ComplaintManually() {
         {/* GPS Location */}
         <div className="flex flex-col items-start space-y-2">
           <button
+            
             type="button"
             onClick={captureLocation}
             className="bg-green-500 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-green-600 transition"
@@ -193,6 +231,8 @@ function ComplaintManually() {
               Latitude: {formData.location.lat}, Longitude: {formData.location.lng}
             </p>
           )}
+          {errors.location && <p className="text-red-500 text-sm">{errors.location}</p>}
+
         </div>
 
         {/* Submit Button */}
