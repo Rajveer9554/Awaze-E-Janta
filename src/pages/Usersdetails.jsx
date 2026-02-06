@@ -57,6 +57,7 @@ function Usersdetails() {
                 <tr key={user.id} className='text-center'>
                     <td className='py-2 px-4 border-b border-gray-300'>{user._id}</td>
                     <td className='py-2 px-4 border-b border-gray-300'>{user.username}</td>
+                    
                     <td className='py-2 px-4 border-b border-gray-300'>{user.email}</td>
                     <td className='py-2 px-4 border-b border-gray-300'>{user.age}</td>
                     <td className='py-2 px-4 border-b border-gray-300'>{user.gender}</td>

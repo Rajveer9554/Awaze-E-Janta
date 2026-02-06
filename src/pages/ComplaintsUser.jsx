@@ -53,7 +53,7 @@ const ComplaintsUser = () => {
                 <td className="p-3">{c.department}</td>
                 <td className="p-3">{c.title}</td>
                 <td className="p-3">{c.description}</td>
-                <td className="p-3">{c.phone}</td>
+                <td className="p-3">{c.mobile}</td>
                 <td className="p-3">{c.address}</td>
                 <td className="p-3">{new Date(c.createdAt).toLocaleDateString()}</td>
               </tr>
