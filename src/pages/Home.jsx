@@ -8,11 +8,12 @@ import { MdSecurity } from "react-icons/md";
 import { CardOne } from "../Components/Card.jsx";
 import { FaRegListAlt, FaUsers, FaCity } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import {  motion,AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { Star } from "lucide-react";
 import Banner from "./Banner.jsx";
 import banner2 from "../assets/banner2.png";
 import API from "../api/axios.js";
+import { motion } from "framer-motion";
 
 function Home() {
   const [services] = useState([
@@ -99,6 +100,7 @@ const data = [
 
   return (
     <div className="w-full overflow-hidden mt-7">
+       <h1>Awaze-E-Janta – Voice of the People</h1>
 
       {/* HERO SECTION */}
       <div className="flex flex-col md:flex-col lg:flex-row items-center justify-between mt-auto lg:px-20 lg:mb-10  mb-10 gap-5 md:gap-10">
@@ -116,12 +118,29 @@ const data = [
 
         {/* Text */}
         <div className="w-full md:w-full px-5 md:px-10 text-center md:text-left md:mb-5 space-y-1 ">
-          <h1 className="font-bold text-4xl md:text-7xl text-blue-800">Raise Your Voice</h1>
+          <h2 className="font-bold text-4xl md:text-7xl text-blue-800">Raise Your Voice</h2>
           <h2 className="font-bold text-3xl md:text-6xl text-green-800">For a Better City</h2>
           <p className="text-xl md:text-2xl font-semibold">
             Report issues like garbage, street lights, water supply etc. with our AI-powered system.
           </p>
+             <p className="mt-6 px-5 md:px-10 text-lg text-gray-700">
+  Learn more about 
+  <Link to="/about-us" className="text-blue-600 underline font-medium ml-1">
+    Awaze-E-Janta
+  </Link>
+  , explore current 
+  <Link to="/register-complaints" className="text-blue-600 underline font-medium ml-1">
+    public issues
+  </Link>
+  or 
+  <Link to="/contact-us" className="text-blue-600 underline font-medium ml-1">
+    contact us
+  </Link>
+  .
+</p>
+
         </div>
+           
 
       </div>
 
@@ -173,7 +192,7 @@ const data = [
 
 
       {/* SERVICES */}
-      <h1 className="text-4xl font-bold text-center mt-16 text-blue-800">Why Choose Us?</h1>
+      <h2 className="text-4xl font-bold text-center mt-16 text-blue-800">Why Choose Us?</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  px-5 md:px-20 mt-10">
         {services.map((card) => (
@@ -182,7 +201,7 @@ const data = [
       </div>
 
       {/* STATS */}
-      <h1 className="text-3xl font-bold text-center mt-20">Har Complaint Behtar Kal Ki Aur 👣🌱</h1>
+      <h2 className="text-3xl font-bold text-center mt-20">Har Complaint Behtar Kal Ki Aur 👣🌱</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-5 md:px-20 mt-10">
         {data.map((card) => (
@@ -218,7 +237,7 @@ const data = [
 
       {/* CTA */}
       <section className="mt-20 px-5 mb-10">
-        <div className="bg-gradient-to-r from-indigo-600 via-violet-600 to-fuchsia-600 p-[1px] rounded-3xl shadow-xl">
+        <div className="bg-linear-to-r from-indigo-600 via-violet-600 to-fuchsia-600 p-1px rounded-3xl shadow-xl">
           <div className="bg-white/60 p-10 rounded-3xl text-center backdrop-blur-xl">
             <h3 className="text-3xl md:text-4xl font-bold">
               Your Complaints Can Transform Your City 🌍💡

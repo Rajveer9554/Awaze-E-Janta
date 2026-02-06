@@ -194,7 +194,7 @@ function GetStarted() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-10 bg-gradient-to-r from-blue-50 via-white to-blue-100">
+    <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-10 bg-linear-to-r from-blue-50 via-white to-blue-100">
       <div className="mt-10 bg-white/90 backdrop-blur-md shadow-xl rounded-xl p-6 sm:p-8 md:p-10 w-full max-w-sm sm:max-w-md md:max-w-lg border border-gray-100 animate-fadeIn">
         <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center text-gray-800 mb-6">
           Create Your Account

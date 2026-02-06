@@ -114,7 +114,7 @@ function ComplaintManually() {
 
   return (
     <div className="flex min-h-screen p-4 sm:p-6 md:p-10 mt-10 justify-center items-center 
-                    bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 rounded-br-lg">
+                    bg-linear-to-r from-blue-100 via-purple-100 to-pink-100 rounded-br-lg">
       <form
         onSubmit={handleSubmit}
         className="bg-white p-4 sm:p-6 md:p-8 w-full max-w-lg sm:max-w-2xl md:max-w-3xl 
@@ -191,10 +191,10 @@ function ComplaintManually() {
         >
           <option value="">Select Department (optional)</option>
           <option value="Nagar Nigam">Nagar Nigam</option>
-          <option value="Water Supply">Water Supply</option>
+          
           <option value="sdm">Sub District Magistrate</option>
           <option value="dm">District Magistrate</option>
-          <option value="Jal Nigam">Jal Nigam</option>
+          
           <option value="Rto">Regional Transport Office</option>
           <option value="Electricity Board">Electricity Board</option>
         </select>

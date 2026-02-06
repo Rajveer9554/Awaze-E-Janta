@@ -14,6 +14,8 @@ import Login from './pages/Login.jsx';
 import PrivateRoute from './Components/PrivateRoute.jsx';
 import Otp from './pages/Otp.jsx';
 import UserDashboard from './pages/UserDashboard.jsx';
+import AdminLogin from './pages/AdminLogin.jsx';
+import AdminDashboard from './pages/AdminDashboard.jsx';
 
 
 
@@ -48,6 +50,9 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+
        </Route>
         
 

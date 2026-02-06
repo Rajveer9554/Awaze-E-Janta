@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {CardTwo} from '../Components/Card.jsx';
 import { useEffect } from 'react';
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 
 function RegisterComplaints() {
@@ -56,7 +56,7 @@ function RegisterComplaints() {
         </div> */}
 
        
-        <div className="flex flex-col w-full min-h-[15rem] bg-gradient-to-r from-green-300 via-blue-300 to-purple-400 rounded-b-3xl shadow-lg shadow-blue-500  items-center justify-center mb-10 px-4 sm:px-8 md:px-16">
+        <div className="flex flex-col w-full min-h-15rem bg-linear-to-r from-green-300 via-blue-300 to-purple-400 rounded-b-3xl shadow-lg shadow-blue-500  items-center justify-center mb-10 px-4 sm:px-8 md:px-16">
           <h1 className=' text-2xl sm:text-3xl md:text-4xl text-black font-extrabold'>
             Welcome to Awaze-E-Janata
             </h1>

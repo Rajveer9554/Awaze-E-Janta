@@ -83,7 +83,7 @@ const [profile, setProfile] = useState({
         <p className='text-center  text-sm sm:text-base bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent'>Manage your account details and update your information
 </p> */}
 {/* Profiule image */}
-<div className='flex flex-col items-center  bg-gradient-to-r from-blue-300 to-purple-400 p-4 rounded-lg'>
+<div className='flex flex-col items-center  bg-linear-to-r from-blue-300 to-purple-400 p-4 rounded-lg'>
     <img 
     src={preview || defaultAvatar}
     alt="Profile"
@@ -101,7 +101,7 @@ const [profile, setProfile] = useState({
 </div>
 <h1 className='text-xl sm:text-2xl md:text-3xl font-bold text-center text-blue-700'>
             WelCome back to your own Profile</h1>
-        <p className='text-center  text-sm sm:text-base bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent'>Manage your account details and update your information
+        <p className='text-center  text-sm sm:text-base bg-linear-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent'>Manage your account details and update your information
 </p>
 {/* Form */}
 <form onSubmit={handleSubmit} className="space-y-4">
@@ -167,7 +167,7 @@ const [profile, setProfile] = useState({
         <button
             type="submit"
             disabled={loading}
-            className="w-full  mt-6 py-3 rounded-xl text-white font-semibold bg-gradient-to-r from-indigo-500 to-purple-500 hover:scale-102 transition disabled:opacity-60 text-sm sm:text-base"
+            className="w-full  mt-6 py-3 rounded-xl text-white font-semibold bg-linear-to-r from-indigo-500 to-purple-500 hover:scale-102 transition disabled:opacity-60 text-sm sm:text-base"
           >
             {loading ? "Saving..." : "Save Changes"}
           </button>

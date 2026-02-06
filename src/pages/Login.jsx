@@ -123,7 +123,7 @@ const handleSubmit = async (e) => {
 
 
   return (
-      <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-10 bg-gradient-to-r from-blue-50 via-white to-blue-100">
+      <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-10 bg-linear-to-r from-blue-50 via-white to-blue-100">
       <div className="mt-10 bg-white/90 backdrop-blur-md shadow-xl rounded-xl p-6 sm:p-8 md:p-10 w-full max-w-sm sm:max-w-md md:max-w-lg border border-gray-100 animate-fadeIn">
         <h1 className='text-xl sm:text-xl md:text-2xl text-center mb-6 font-semibold'> Welcome back to Awaze-E-Janta </h1>
       

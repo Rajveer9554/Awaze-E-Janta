@@ -3,7 +3,7 @@ import { FiUser, FiFileText } from "react-icons/fi";
 
 function Sidebar({ activeTab, setActiveTab }) {
   return (
-    <aside className="w-64 bg-gradient-to-b from-purple-500 to-blue-200 text-white flex flex-col p-6 h-screen sticky top-0 ">
+    <aside className="w-64 bg-linear-to-b from-purple-500 to-blue-200 text-white flex flex-col p-6 h-screen sticky top-0 ">
         
       {/* <h2 className="text-2xl font-bold mb-8">Awaze-E-Janata</h2> */}
       <div className="flex items-center justify-center h-20 border-b-2 border-blue-900">
