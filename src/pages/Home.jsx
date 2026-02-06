@@ -94,13 +94,13 @@ function Home() {
 const data = [
   { id: 1, title: "Total Complaints", count: stats.totalComplaints, icon: <FaRegListAlt size={60} /> },
   { id: 2, title: "Active Users", count: stats.activeUsers, icon: <FaUsers size={60} /> },
-  { id: 3, title: "Cities Covered", count: "100", icon: <FaCity size={60} /> },
+  { id: 3, title: "Cities Covered", count: "1", icon: <FaCity size={60} /> },
 ];
 
 
   return (
     <div className="w-full overflow-hidden mt-7">
-       <h1>Awaze-E-Janta – Voice of the People</h1>
+       <h1 className="mt-10 text-center text-2xl mb-5 font-bold ">Awaze-E-Janta – Voice of the People</h1>
 
       {/* HERO SECTION */}
       <div className="flex flex-col md:flex-col lg:flex-row items-center justify-between mt-auto lg:px-20 lg:mb-10  mb-10 gap-5 md:gap-10">
