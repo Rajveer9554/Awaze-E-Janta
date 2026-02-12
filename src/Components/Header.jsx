@@ -33,7 +33,7 @@ function Header() {
       
       <Link
   to="/"
-  className="text-white font-bold text-lg sm:text-sm md:text-2xl hover:border-2 hover:border-green-700 rounded-2xl tracking-wide transition leading-tight hidden lg:block"
+  className="text-white font-bold text-lg sm:text-base md:text-2xl hover:border-2 hover:border-green-700 rounded-2xl tracking-wide transition leading-tight "
 >
   Awaze-E-Janata
 </Link>
