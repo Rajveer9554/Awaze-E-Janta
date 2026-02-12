@@ -17,7 +17,9 @@ function Aichat() {
   useEffect(() => {
     scrollToBottom();
   }, [messages]); ///Jab bhi messages update ho → scroll karo
-
+ useEffect(() => {
+    window.scrollTo(0, 0); //Page load pe top pe scroll karo
+  }, []);
   const handleSend = async (text) => {
     try {
       setLoading(true);
