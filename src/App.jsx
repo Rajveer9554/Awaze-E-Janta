@@ -1,4 +1,4 @@
-import { useState } from 'react'
+
 
 import './App.css'
 import {BrowserRouter, Routes, Route} from "react-router-dom";
@@ -16,13 +16,14 @@ import Otp from './pages/Otp.jsx';
 import UserDashboard from './pages/UserDashboard.jsx';
 import AdminLogin from './pages/AdminLogin.jsx';
 import AdminDashboard from './pages/AdminDashboard.jsx';
+import Aichat from './pages/Aichat.jsx';
 
 
 
 
 
 function App() {
-  const [count, setCount] = useState(0);
+ 
 
   return (
     <div> 
@@ -33,6 +34,7 @@ function App() {
        <Route index element={<Home />} />
        <Route path="about-us" element={<AboutUs />} />
        <Route path="contact-us" element={<ContactUs/>} />
+       <Route path="ai-chat" element={<Aichat />} />
        <Route path="register-complaints" element={<PrivateRoute><RegisterComplaints /> </PrivateRoute> } />
        <Route path="get-started" element={<GetStarted />} />
       

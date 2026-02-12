@@ -7,6 +7,8 @@ import { manualLogout } from '../utility/utilityService';
 import { ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import { FaUserAlt } from "react-icons/fa";
+import { RiChatSmileAiFill } from "react-icons/ri";
+
 
 
 
@@ -40,11 +42,23 @@ function Header() {
 
       {/* Navigation Links */}
       <ul className="flex flex-nowrap items-center gap-2 sm:gap-4 md:gap-6 text-xs sm:text-sm md:text-base whitespace-nowrap">
+        <NavLink
+              to="/ai-chat"
+              className={({ isActive }) =>
+                isActive
+                  ? 'text-black font-semibold bg-white px-2 py-1 sm:px-3 sm:py-2 rounded-full'
+                  : 'text-white hover:text-blue-400'
+              }
+            >
+              <RiChatSmileAiFill size={20}  className="inline-block mr-1 mb-1 " />
+              <span className=''> AiGuide </span>
+            </NavLink>
         {[
-          
+           
           { label: 'About', path: '/about-us' },
           { label: 'Contact', path: '/contact-us' },
           { label: 'Complaint', path: '/register-complaints' },
+          
          
           
         ].map(({ label, path }) => (
@@ -59,8 +73,10 @@ function Header() {
             >
               {label}
             </NavLink>
+             
           </li>
         ))}
+        
 
            {/* Logout Button - sirf tab dikhao jab user logged in ho */}
         {token && (
