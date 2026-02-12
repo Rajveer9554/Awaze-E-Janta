@@ -3,7 +3,7 @@ import { FaRobot } from "react-icons/fa";
 import { GiSparkles } from "react-icons/gi";
 import { useState } from "react";
 import ChatMessage from "../Components/ChatMessage.jsx";
-import ChatInput from "../components/ChatInput.jsx";
+import ChatInput from "../Components/ChatInput.jsx";
 import { sendChatMessage } from "../services/chatApi.js";
 import { useRef, useEffect } from "react";
 
