@@ -15,6 +15,7 @@ import banner2 from "../assets/banner2.png";
 import API from "../api/axios.js";
 import { motion } from "framer-motion";
 
+
 function Home() {
   const [services] = useState([
     {
@@ -42,6 +43,7 @@ function Home() {
       icon: <MdSecurity size={60} />,
     },
   ]);
+   const [activeCard, setActiveCard] = useState(null);
   // stats state
   const [stats, setStats] = useState({
     totalComplaints: 0,
@@ -92,14 +94,15 @@ function Home() {
 
   // ✅ derive data from stats (not useState)
 const data = [
-  { id: 1, title: "Total Complaints", count: stats.totalComplaints, icon: <FaRegListAlt size={60} /> },
-  { id: 2, title: "Active Users", count: stats.activeUsers, icon: <FaUsers size={60} /> },
-  { id: 3, title: "Cities Covered", count: "1", icon: <FaCity size={60} /> },
+  { id: 5, title: "Total Complaints", count: stats.totalComplaints, icon: <FaRegListAlt size={60} /> },
+  { id: 6, title: "Active Users", count: stats.activeUsers, icon: <FaUsers size={60} /> },
+  { id: 7, title: "Cities Covered", count: "1", icon: <FaCity size={60} /> },
 ];
 
 
   return (
     <div className="w-full overflow-hidden mt-7">
+      
        <h1 className="mt-10 text-center text-2xl mb-5 font-bold ">Awaze-E-Janta – Voice of the People</h1>
 
       {/* HERO SECTION */}
@@ -177,7 +180,7 @@ const data = [
   {/* Gradient Glow Border */}
   <div className="absolute -inset-1 rounded-xl 
     bg-linear-to-r from-pink-500 via-purple-500 to-blue-500
-    blur-md opacity-70
+    blur-md opacity-40
     group-hover:opacity-100 transition duration-500">
   </div>
 
@@ -196,7 +199,11 @@ const data = [
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  px-5 md:px-20 mt-10">
         {services.map((card) => (
-          <CardOne key={card.id} title={card.title} content={card.content} icon={card.icon} />
+          <CardOne key={card.id} title={card.title} content={card.content} icon={card.icon} 
+          isActive={activeCard === card.id}
+          onHover={() => setActiveCard(card.id)}
+          onMouseMove={()=> setActiveCard(card.id)}
+          onLeave={() => setActiveCard(null)}/>
         ))}
       </div>
 
@@ -205,7 +212,8 @@ const data = [
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-5 md:px-20 mt-10">
         {data.map((card) => (
-          <CardOne key={card.id} title={card.title} count={card.count} icon={card.icon} />
+          <CardOne key={card.id} title={card.title} count={card.count} icon={card.icon} 
+          isActive={activeCard==card.id} onHover={()=> setActiveCard(card.id)} onLeave={()=> setActiveCard(null)}/>
         ))}
       </div>
 
@@ -220,7 +228,7 @@ const data = [
           📢 Awaze-e-Janata: Badlaav Ki Shuruaat
         </motion.h2>
 
-        <div className="mx-auto mt-10 max-w-3xl bg-white/70 p-8 rounded-2xl shadow-lg backdrop-blur-xl">
+        <div className="mx-auto mt-10 max-w-3xl bg-white/70 p-8 rounded-2xl shadow-2xs shadow-blue-500 backdrop-blur-xl">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTestimonial}

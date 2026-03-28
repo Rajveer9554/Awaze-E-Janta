@@ -48,7 +48,7 @@ function Aichat() {
     <div className=" min-h-screen  bg-linear-to-r from-indigo-500 to-purple-400  ">
       {/* navbar */}
       <nav className=" fixed top-0 w-full z-50 backdrop-blur-lg bg-blue-900/80 border-b border-white/10 ">
-        <div className='className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-3 flex items-center justify-between'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-3 flex items-center justify-between'>
           {/* logo */}
           <div className="flex items-center gap-2 text-white font-bold text-lg sm:text-xl">
             <FaRobot className="text-purple-400" size={26} />
@@ -67,7 +67,7 @@ function Aichat() {
 
       <div className="pt-24 pb-10 flex justify-center">
         <div className="w-full max-w-5xl h-full mx-auto px-3 sm:px-6 ">
-          <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/30 flex flex-col h-[75vh]">
+          <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/30 flex flex-col h-[85vh]">
             {/* Messages */}
             <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 scrollbar-thin scrollbar-thumb-purple-300">
               {messages.length === 0 && (

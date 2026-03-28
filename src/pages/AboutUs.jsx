@@ -78,6 +78,7 @@
 import React, { useEffect } from "react";
 import { Users, Target, Award } from "lucide-react";
 
+
 export default function AboutUs() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -86,7 +87,8 @@ export default function AboutUs() {
   return (
     <div className="bg-gray-50 text-gray-800 mt-10">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-indigo-600 to-blue-500 text-white py-16 sm:py-20 text-center rounded-2xl mt-20 px-4 mx-15">
+      <section className="relative bg-linear-to-r from-indigo-600 to-blue-500 text-white py-16 sm:py-20 text-center rounded-2xl mt-20 px-4 mx-15">
+        
         <h1 className="text-3xl sm:text-5xl md:text-6xl animate-pulse font-bold mb-4">
           About Us
         </h1>
@@ -128,25 +130,25 @@ export default function AboutUs() {
 
       {/* Key Highlights */}
       <section className="py-12 sm:py-16 bg-white px-4 md:px-20 text-center">
-        <h2 className="text-2xl sm:text-3xl font-semibold mb-12">
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-12 shadow-2xs shadow-amber-500 rounded-2xl">
           Why Choose Us?
         </h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-          <div className="p-6 bg-gray-100 rounded-2xl shadow hover:shadow-lg transition">
+          <div className="p-6 bg-gray-100 rounded-2xl shadow hover:shadow-lg hover:shadow-blue-600 transition hover:bg-amber-400">
             <Users className="w-10 h-10 sm:w-12 sm:h-12 text-indigo-600 mx-auto mb-4" />
             <h3 className="text-lg sm:text-xl font-bold mb-2">Citizen Friendly</h3>
             <p className="text-gray-600 text-sm sm:text-base">
               Easy-to-use complaint system designed for every citizen.
             </p>
           </div>
-          <div className="p-6 bg-gray-100 rounded-2xl shadow hover:shadow-lg transition">
+          <div className="p-6 bg-gray-100 rounded-2xl shadow hover:shadow-lg transition hover:bg-green-400 hover:shadow-blue-600">
             <Target className="w-10 h-10 sm:w-12 sm:h-12 text-indigo-600 mx-auto mb-4" />
             <h3 className="text-lg sm:text-xl font-bold mb-2">Quick Action</h3>
             <p className="text-gray-600 text-sm sm:text-base">
               Your complaints are forwarded to the right department instantly.
             </p>
           </div>
-          <div className="p-6 bg-gray-100 rounded-2xl shadow hover:shadow-lg transition">
+          <div className="p-6 bg-gray-100 rounded-2xl shadow hover:shadow-lg transition hover:bg-pink-400 hover:shadow-blue-600">
             <Award className="w-10 h-10 sm:w-12 sm:h-12 text-indigo-600 mx-auto mb-4" />
             <h3 className="text-lg sm:text-xl font-bold mb-2">Trusted Platform</h3>
             <p className="text-gray-600 text-sm sm:text-base">

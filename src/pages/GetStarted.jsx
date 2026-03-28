@@ -147,7 +147,7 @@ import { registerUser } from "../services/UserService";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-
+import BackgroundParticles from "../Components/ParticebackgroundUI";
 
 function GetStarted() {
   const [formData, setFormData] = useState({
@@ -194,16 +194,17 @@ function GetStarted() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-10 bg-linear-to-r from-blue-50 via-white to-blue-100">
-      <div className="mt-10 bg-white/90 backdrop-blur-md shadow-xl rounded-xl p-6 sm:p-8 md:p-10 w-full max-w-sm sm:max-w-md md:max-w-lg border border-gray-100 animate-fadeIn">
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center text-gray-800 mb-6">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden p-4 sm:p-6 md:p-10 bg-slate-950">
+      <BackgroundParticles />
+      <div className="relative z-10 mt-10 bg-white/10 backdrop-blur-xl shadow-2xl rounded-3xl p-6 sm:p-8 md:p-10 w-full max-w-sm sm:max-w-md md:max-w-lg border border-white/20 animate-fadeIn">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center text-white mb-6">
           Create Your Account
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-5">
           {/* Username */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-1">
+            <label className="block text-sm font-semibold text-white mb-1">
               Username
             </label>
             <input
@@ -219,7 +220,7 @@ function GetStarted() {
 
           {/* Email */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-1">
+            <label className="block text-sm font-semibold text-white mb-1">
               Email
             </label>
             <input
@@ -235,7 +236,7 @@ function GetStarted() {
 
           {/* Password */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-1">
+            <label className="block text-sm font-semibold text-white mb-1">
               Password
             </label>
             <input
@@ -251,7 +252,7 @@ function GetStarted() {
 
           {/* Age */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-1">
+            <label className="block text-sm font-semibold text-white mb-1">
               Age
             </label>
             <input
@@ -267,8 +268,8 @@ function GetStarted() {
 
           {/* Gender */}
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-            <span className="text-sm font-semibold text-gray-700">Gender</span>
-            <label className="flex items-center space-x-1 text-gray-700">
+            <span className="text-sm font-semibold text-white">Gender</span>
+            <label className="flex items-center space-x-1 text-white">
               <input
                 type="radio"
                 name="gender"
@@ -279,7 +280,7 @@ function GetStarted() {
               />
               <span>Male</span>
             </label>
-            <label className="flex items-center space-x-1 text-gray-700">
+            <label className="flex items-center space-x-1 text-white">
               <input
                 type="radio"
                 name="gender"
