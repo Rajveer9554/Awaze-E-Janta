@@ -88,8 +88,8 @@ function Header() {
                     to="/dashboard"
                     className={({ isActive }) =>
                       isActive
-                        ? "text-white bg-green-500 font-semibold px-3 py-2 rounded-full"
-                        : "text-white hover:bg-green-400 hover:text-black rounded-full border-2 border-green-600 px-3 py-2 transition"
+                        ? "text-white  rounded-full"
+                        : "text-white hover:bg-green-400 hover:text-black rounded-full transition"
                     }
                   >
                     <FaUserAlt />
@@ -182,11 +182,11 @@ function Header() {
                     onClick={closeMenu}
                     className={({ isActive }) =>
                       isActive
-                        ? "text-white bg-green-500 font-semibold px-4 py-2 rounded-full"
-                        : "text-white hover:bg-green-400 hover:text-black rounded-full border-2 border-green-600 px-4 py-2 transition"
+                        ? "text-white   rounded-full"
+                        : "text-white hover:bg-green-400 hover:text-black rounded-full  transition"
                     }
                   >
-                    <FaUserAlt />
+                    <FaUserAlt  />
                   </NavLink>
                 </li>
               </>
