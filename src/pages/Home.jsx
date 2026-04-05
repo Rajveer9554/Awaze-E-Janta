@@ -1,6 +1,6 @@
 
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo,lazy,Suspense } from "react";
 import { LuCircleCheckBig } from "react-icons/lu";
 import { CgBot } from "react-icons/cg";
 import { GiProgression } from "react-icons/gi";
@@ -8,16 +8,14 @@ import { MdSecurity } from "react-icons/md";
 import { CardOne } from "../Components/Card.jsx";
 import { FaRegListAlt, FaUsers, FaCity } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
-import { Star } from "lucide-react";
-import Banner from "./Banner.jsx";
-import banner2 from "../assets/banner2.png";
+import banner2 from "../assets/banner2.webp";
 import API from "../api/axios.js";
-import { motion } from "framer-motion";
 
+
+const Banner = lazy(() => import("./Banner.jsx"));
 
 function Home() {
-  const [services] = useState([
+  const services = useMemo(() =>[
     {
       id: 1,
       title: "Easy to Use",
@@ -42,7 +40,8 @@ function Home() {
       content: "Your data stays safe and confidential",
       icon: <MdSecurity size={60} />,
     },
-  ]);
+  ], []);
+  
    const [activeCard, setActiveCard] = useState(null);
   // stats state
   const [stats, setStats] = useState({
@@ -54,18 +53,26 @@ function Home() {
   useEffect(() => {
     window.scrollTo(0, 0);
     // Fetch stats from backend API
-    const fetchstats = async() =>{
-      try {
-        const res = await API.get("/stats");
-         setStats({
-        totalComplaints: res.data.totalComplaints,
-        activeUsers: res.data.activeUsers
-      });
-
-    } catch (error) {
-        console.error("Error fetching stats:", error);
+    // using Cache and Isse har refresh pe API hit nahi hogi.
+    const cachedStats = sessionStorage.getItem("stats");
+    if(cachedStats){
+      setStats(JSON.parse(cachedStats));
     }
-  }; fetchstats();
+    const fetchStats = async () => {
+      try{
+        const response= await API.get("/stats");
+
+        const newStats ={
+          totalComplaints: response.data.totalComplaints,
+          activeUsers: response.data.activeUsers,
+        };
+        setStats(newStats);
+        sessionStorage.setItem("stats", JSON.stringify(newStats));
+      }catch(error){
+        console.error("Error fetching stats:", error);
+        }
+      };
+    fetchStats();
   },
    []);
 
@@ -93,11 +100,11 @@ function Home() {
   };
 
   // ✅ derive data from stats (not useState)
-const data = [
+const data = useMemo(() => [
   { id: 5, title: "Total Complaints", count: stats.totalComplaints, icon: <FaRegListAlt size={60} /> },
   { id: 6, title: "Active Users", count: stats.activeUsers, icon: <FaUsers size={60} /> },
   { id: 7, title: "Cities Covered", count: "1", icon: <FaCity size={60} /> },
-];
+], [stats]);
 
 
   return (
@@ -110,12 +117,9 @@ const data = [
 
         {/* Image */}
         <div className="w-full   ">
-          {/* <img
-            src="https://img.freepik.com/free-vector/student-activism-abstract-illustration_335657-5342.jpg"
-            alt="banner"
-            className="w-full rounded-lg"
-          /> */}
+            <Suspense fallback={<div>Loading...</div>}>
           <Banner />
+          </Suspense>
         </div>
         
 
@@ -185,11 +189,14 @@ const data = [
   </div>
 
   {/* Banner Image */}
-  <img
+  {/* <img
     src={banner2}
     alt="banner"
+    loading="eager"
+    width="800"
+    height="500"
     className="relative w-full md:w-full rounded-3xl "
-  />
+  /> */}
 
 </div>
 
@@ -202,7 +209,7 @@ const data = [
           <CardOne key={card.id} title={card.title} content={card.content} icon={card.icon} 
           isActive={activeCard === card.id}
           onHover={() => setActiveCard(card.id)}
-          onMouseMove={()=> setActiveCard(card.id)}
+          onMouseEnter={() => setActiveCard(card.id)}
           onLeave={() => setActiveCard(null)}/>
         ))}
       </div>
@@ -219,28 +226,22 @@ const data = [
 
       {/* TESTIMONIALS */}
       <section className="mt-20 px-5">
-        <motion.h2
+        <h2
           className="text-center text-3xl md:text-4xl font-bold "
-          initial="hidden"
-          whileInView="show"
-          variants={fadeInUp}
+          
         >
           📢 Awaze-e-Janata: Badlaav Ki Shuruaat
-        </motion.h2>
+        </h2>
 
-        <div className="mx-auto mt-10 max-w-3xl bg-white/70 p-8 rounded-2xl shadow-2xs shadow-blue-500 backdrop-blur-xl">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTestimonial}
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -30 }}
-              transition={{ duration: 0.45 }}
+        {/* <div className="mx-auto mt-10 max-w-3xl bg-white/70 p-8 rounded-2xl shadow-2xs shadow-blue-500 backdrop-blur-xl"> */}
+          
+            <div
+             className="mx-auto mt-10 max-w-3xl bg-white/70 p-8 rounded-2xl shadow shadow-blue-500"
             >
               <p className="text-xl text-center">“{testimonials[activeTestimonial].quote}”</p>
-            </motion.div>
-          </AnimatePresence>
-        </div>
+            </div>
+          
+        
       </section>
 
       {/* CTA */}

@@ -38,7 +38,7 @@ export const setupInactivityLogout = (minutes = 10) => {
     inactivityTimer = setTimeout(() => {
       localStorage.removeItem('token');
       window.location.href = '/login';
-      alert('Logged out due to inactivity');
+      // alert('Logged out due to inactivity');
     }, minutes * 60 * 1000);
   };
 //Ye sab user active hone ke signs hain

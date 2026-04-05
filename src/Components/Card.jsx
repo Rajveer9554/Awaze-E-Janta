@@ -1,6 +1,7 @@
-import { useRef } from "react";
+import React, { memo,useRef } from "react";
 import { Link } from "react-router-dom";
-export function CardOne({
+
+export const CardOne=memo (function CardOne({
 title,count,content,icon,isActive,onHover,onLeave
 }){
   const cardRef =useRef();
@@ -60,13 +61,20 @@ const reset = () => {
 
     </div>
   )
-}
+});
 
 
 
 
 //// registercomplaint card
-export function CardTwo({ title, content, icon,count,buttonText, path }) {
+export const CardTwo = memo(function CardTwo({
+  title,
+  content,
+  icon,
+  count,
+  buttonText,
+  path,
+}) {
   return (
     <div
       className="  rounded-2xl p-6  w-85 h-65 m-9 flex flex-col items-center text-black bg-white shadow-lg shadow-blue-500 "
@@ -89,11 +97,17 @@ export function CardTwo({ title, content, icon,count,buttonText, path }) {
       </div>
     </div>
   );
-}
+});
 
 //// tracking card 
 
-export function CardThree({ title, content, icon,count,buttonText }) {
+export const CardThree = memo(function CardThree({
+  title,
+  content,
+  icon,
+  count,
+  buttonText,
+}) {
   return (
     <div
       className="  rounded-2xl p-6  m-9 flex flex-col items-center text-black bg-white shadow-lg shadow-blue-500 "
@@ -116,7 +130,7 @@ export function CardThree({ title, content, icon,count,buttonText }) {
       </div>
     </div>
   );
-}
+});
 
 
-export default {CardOne,CardTwo,CardThree};
+

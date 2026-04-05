@@ -32,7 +32,7 @@ function Particles() {
     <Points ref={ref} positions={positions} stride={3}> // Ye particle cloud render karta hai.
       <PointMaterial
         transparent
-        color="green"
+        color="purple"
         size={0.03}
         sizeAttenuation
         depthWrite={false}
