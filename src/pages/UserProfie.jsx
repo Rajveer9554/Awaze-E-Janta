@@ -23,12 +23,24 @@ const [profile, setProfile] = useState({
 
   // ✅ Fetch profile on mount
   useEffect(() => {
+
+    // first time data come from db and next time local storage se aayega, isse har refresh pe API hit nahi hogi.
+    const cachedProfile= localStorage.getItem("profile");
+    if(cachedProfile){
+     const parsedProfile = JSON.parse(cachedProfile);
+      setProfile(parsedProfile);
+      setPreview(parsedProfile.image || "");
+      return; // ✅ Skip API call if cached data exists
+
+    }
+
     const fetchProfile = async () => {
       try {
         setLoading(true);
         const data = await getUserProfile();
         setProfile(data);
         setPreview(data.image || "");
+        localStorage.setItem("profile", JSON.stringify(data)); // ✅ Cache profile in localStorage
       } catch (err) {
         setMessage(err.message || "Error loading profile");
       } finally {
@@ -65,7 +77,9 @@ const [profile, setProfile] = useState({
 
       // await updateUserProfile( profile);
       await updateUserProfile({ ...profile, age: Number(profile.age) });
-
+     
+      // ✅ Update cache after successful update
+      localStorage.setItem("profile", JSON.stringify(profile));
       setMessage("✅ Profile updated successfully");
     } catch (err) {
       setMessage(err.message || "❌ Error updating profile");

@@ -5,9 +5,17 @@ const UserComplaintsDashboard = ({ userId }) => {
   const [summary, setSummary] = useState(null);
 
   useEffect(() => {
+    // lnext time local storage se data
+    const cachedSummary = localStorage.getItem(`summary_${userId}`);
+    if (cachedSummary) {
+      const parsedSummary = JSON.parse(cachedSummary);
+      setSummary(parsedSummary);
+      return; // Skip API call if cached data exists
+    }
   const fetchSummary = async () => {
     try {
       const res = await API.get(`/complaints/summary/${userId}`);
+      localStorage.setItem(`summary_${userId}`, JSON.stringify(res.data)); // Cache summary in localStorage
       setSummary(res.data);
     } catch (error) {
       console.error(error.message);
