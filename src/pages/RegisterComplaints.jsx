@@ -118,7 +118,7 @@ function RegisterComplaints() {
   )
 }
 
-export default RegisterComplaints
+export default RegisterComplaints;
 
 
 

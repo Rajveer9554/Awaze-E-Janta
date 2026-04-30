@@ -24,7 +24,7 @@ const [profile, setProfile] = useState({
   // ✅ Fetch profile on mount
   useEffect(() => {
 
-    // first time data come from db and next time local storage se aayega, isse har refresh pe API hit nahi hogi.
+    // ✅ Check localStorage for cached profile first
     const cachedProfile= localStorage.getItem("profile");
     if(cachedProfile){
      const parsedProfile = JSON.parse(cachedProfile);
@@ -40,14 +40,18 @@ const [profile, setProfile] = useState({
         const data = await getUserProfile();
         setProfile(data);
         setPreview(data.image || "");
-        localStorage.setItem("profile", JSON.stringify(data)); // ✅ Cache profile in localStorage
+        // ✅ Aur same data localStorage me save kar raha hai:
+        localStorage.setItem("profile", JSON.stringify(data)); 
       } catch (err) {
         setMessage(err.message || "Error loading profile");
       } finally {
         setLoading(false);
       }
     };
+    //Agar localStorage me pehle se data nahi hai tabhi backend hit karega.
+    if(!cachedProfile){
     fetchProfile();
+    }
   }, []);
 // ✅ Handle input change
   const handleChange = (e) => {
@@ -78,7 +82,7 @@ const [profile, setProfile] = useState({
       // await updateUserProfile( profile);
       await updateUserProfile({ ...profile, age: Number(profile.age) });
      
-      // ✅ Update cache after successful update
+      // ✅ Update localstorage after successful update
       localStorage.setItem("profile", JSON.stringify(profile));
       setMessage("✅ Profile updated successfully");
     } catch (err) {

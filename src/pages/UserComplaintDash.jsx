@@ -5,8 +5,10 @@ const UserComplaintsDashboard = ({ userId }) => {
   const [summary, setSummary] = useState(null);
 
   useEffect(() => {
-    // lnext time local storage se data
+    // ✅ Check localStorage for cached summary first
     const cachedSummary = localStorage.getItem(`summary_${userId}`);
+
+    // Agar localStorage me profile pehle se saved hai toh:
     if (cachedSummary) {
       const parsedSummary = JSON.parse(cachedSummary);
       setSummary(parsedSummary);
@@ -15,12 +17,14 @@ const UserComplaintsDashboard = ({ userId }) => {
   const fetchSummary = async () => {
     try {
       const res = await API.get(`/complaints/summary/${userId}`);
-      localStorage.setItem(`summary_${userId}`, JSON.stringify(res.data)); // Cache summary in localStorage
+      //Aur same data localStorage me save kar raha hai:
+      localStorage.setItem(`summary_${userId}`, JSON.stringify(res.data)); 
       setSummary(res.data);
     } catch (error) {
       console.error(error.message);
     }
   };
+  
   fetchSummary();
 }, [userId]);
 

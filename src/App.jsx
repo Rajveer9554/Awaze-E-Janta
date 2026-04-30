@@ -17,6 +17,7 @@ import UserDashboard from './pages/UserDashboard.jsx';
 import AdminLogin from './pages/AdminLogin.jsx';
 import AdminDashboard from './pages/AdminDashboard.jsx';
 import Aichat from './pages/Aichat.jsx';
+import AdminRoute from './Components/AdminRoute.jsx';
 
 
 
@@ -53,7 +54,7 @@ function App() {
           }
         />
         <Route path="/admin" element={<AdminLogin />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/dashboard" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
 
        </Route>
         

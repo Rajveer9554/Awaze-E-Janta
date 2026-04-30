@@ -4,7 +4,7 @@ export default function ChatInput({ onSend, loading }) {
   const [text, setText] = useState("");
 
   return (
-    <div className="p-4 flex gap-2 ">
+    <div className="p-2 flex gap-2 ">
       <textarea
         className="flex-1 border rounded px-3"
         placeholder="Ask something..."

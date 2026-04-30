@@ -11,21 +11,24 @@ const AdminLogin = () => {
 
   const handleLogin = async () => {
     try{
-        const response = await API.post("/admin/login", {
+        const response = await API.post("/admin/adminlogin", {
             email,
             password
     })
+
     localStorage.setItem("adminToken", response.data.token);
-    navigate("/admin/dashboard");
+    localStorage.setItem("userType", response.data.userType)
+    if (response.data.userType == "superAdmin") navigate("/admin/dashboard");
+    else return
     }
     catch (err){
-        alert("Login Failed! Please check your credentials."+(err.response?.data?.message || "Server Error"));
+        alert("Login Failed! Please check your credentials ."+(err.response?.data?.message || "Server Error"));
     }
 };
 
 
   return (
-<div className="flex items-center justify-center min-h-screen bg-linear-to-r from-purple-500 to-blue-500">
+  <div className="flex items-center justify-center min-h-screen bg-linear-to-r from-purple-500 to-blue-500">
     <div className="bg-white p-8 rounded-lg shadow-lg w-96" >
         <h2 className="text-2xl text-center text-indigo-700 text-semibold">
           🔐 Admin Login  
