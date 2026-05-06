@@ -12,7 +12,7 @@ const UserComplaintsDashboard = ({ userId }) => {
     if (cachedSummary) {
       const parsedSummary = JSON.parse(cachedSummary);
       setSummary(parsedSummary);
-      return; // Skip API call if cached data exists
+      // 'return;' hata diya gaya hai taaki purana data dikhne ke baad, naya data bhi backend se fetch ho jaye.
     }
   const fetchSummary = async () => {
     try {

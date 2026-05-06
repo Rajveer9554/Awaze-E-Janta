@@ -9,6 +9,7 @@ import { useState } from 'react';
 function Usersdetails() {
     const [users, setUsers] = useState([]);
 
+
     useEffect(() => {
         const fetchUsers = async () => {
            try {
@@ -19,6 +20,7 @@ function Usersdetails() {
             Authorization: `Bearer ${token}`,
           },
         });
+        
 
         console.log("API RESPONSE 👉", response.data);
 
@@ -30,6 +32,7 @@ function Usersdetails() {
       }
     };
             fetchUsers();
+            
     }, []);
 
 
