@@ -55,6 +55,7 @@ scrollToBottom();
             <ChatMessage key={index} role={msg.role} text={msg.text} />
           ))}
           {loading && <ChatMessage role="ai" loading={true} />}
+          <div ref={messagesEndRef} />
         </div>
        </div>
 
